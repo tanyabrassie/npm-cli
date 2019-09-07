@@ -36,6 +36,11 @@ module.exports = {
             subsets: [`latin`],
             variants: [`400`, `500`]
           },
+          {
+            family: `Inconsolata`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          },
         ],
       },
     }
