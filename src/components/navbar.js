@@ -20,8 +20,14 @@ const NavLink = styled(Link)`
   font-weight: 500;
   text-decoration: none;
   color: ${colors.black};
-  letters-spacing: .3px;
+  letter-spacing: .3px;
   margin: 0 10px;
+  font-size: 14px;
+  transition: opacity .5s;
+
+  &:hover {
+    opacity: .5;
+  }
 `;
 
 const Logo = styled(Image)`
@@ -35,14 +41,18 @@ const Links = styled.ul`
   margin-left: auto;
 `;
 
+const Heart = styled(Box)`
+  font-size: 14px;
+`;
+
 const Navbar = () => {
   return(
     <Container>
-      <Box ml={1}>❤</Box>
-      <Link><Logo src={cliLogo} /></Link>
+      <Heart ml={1}>❤</Heart>
+      <Link to="/"><Logo src={cliLogo} /></Link>
       <Links>
-        <NavLink>docs</NavLink>
-        <NavLink>npmjs.org</NavLink>
+        <NavLink to="/">docs</NavLink>
+        <NavLink to="/">npmjs.org</NavLink>
 
       </Links>
     </Container>

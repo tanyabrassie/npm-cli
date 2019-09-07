@@ -1,24 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import {colors} from '../../theme';
-
-const ContentWrapper = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-`;
+import {colors, breakpoints, space} from '../../theme';
+import Windows from './Windows';
 
 const Container = styled.div`
   background-color: ${colors.offWhite};
+  padding: ${space[5]}px ${space[2]}px ${space[10]}px;
+  position: relative;
+
+  @media screen and (min-width: ${breakpoints.TABLET}) {
+    padding: ${space[5]}px ${space[2]}px 140px;
+  }
 `;
 
 const Hero = () => {
   return(
     <Container>
-       <ContentWrapper>
-      </ContentWrapper>
+      <Windows/>
     </Container>  
   );
 }
