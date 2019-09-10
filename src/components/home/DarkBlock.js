@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Flex} from 'rebass';
-import {space, colors} from '../../theme';
 
 const Container = styled(Flex)`
-  background-color: ${colors.purpleBlack};
-  color: ${colors.white};
+  background-color: ${(props) => props.theme.colors.purpleBlack};
+  color: ${(props) => props.theme.colors.white};
 `;
 
 const ContentWrapper = styled(Flex)`
@@ -17,20 +16,10 @@ const Text = styled.p`
   text-align: center;
 `;
 
-const featureTexts = [
-  'Nunc malesuada suscipit enim at feugiat. Duis id mauris lectus. Donec a sagittis lectus.',
-  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, tetuer adipiscing elit, sed diam nonummy nibmod',
-];
-
-const featureTitles = [
-  'Really Fast',
-  'Easy to Use',
-];
-
 const DarkBlock = () => {
   return(
     <Container>
-      <ContentWrapper px={space[2]} py={space[8]} m='auto' flexDirection='column'>
+      <ContentWrapper px={2} py={6} m='auto' flexDirection='column'>
         <Text>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, tetuer adipiscing elit, sed diam nonummy nibmod
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, tetuer adipiscing elit, sed diam nonummy nibmod
@@ -38,6 +27,6 @@ const DarkBlock = () => {
       </ContentWrapper>
     </Container>
   );
-}
+};
 
 export default DarkBlock;

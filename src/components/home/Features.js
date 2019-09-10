@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import FeatureCard from './FeatureCard';
 import testIcon from '../../images/test-icon.svg';
 import {Flex} from 'rebass';
-import {space} from '../../theme';
 
 const Container = styled(Flex)`
   background: linear-gradient(144deg, #fb881799, #ff4b0199, #c1212799, #e02aff99);
@@ -26,7 +25,7 @@ const featureTitles = [
 const Features = () => {
   return(
     <Container>
-      <ContentWrapper m='auto' py={space[10]} flexDirection='column'>
+      <ContentWrapper m='auto' py={5} flexDirection='column'>
         <FeatureCard 
           icon={testIcon} 
           title={featureTitles[0]}
@@ -45,6 +44,6 @@ const Features = () => {
       </ContentWrapper>
     </Container>
   );
-}
+};
 
 export default Features;
