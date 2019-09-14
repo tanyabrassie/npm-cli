@@ -1,11 +1,19 @@
-npm-doctor(1) -- Check your environments
-========================================================
+---
+title: npm-doctor
+description: Check your environments
+---
 
-## SYNOPSIS
+# npm-doctor
 
-    npm doctor
+## Check your environments
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm doctor
+```
+
+### Description
 
 `npm doctor` runs a set of checks to ensure that your npm installation has
 what it needs to manage your JavaScript packages. npm is mostly a standalone tool, but it does
@@ -29,7 +37,7 @@ better than an old version.
 `npm doctor` verifies the following items in your environment, and if there are
 any recommended changes, it will display them.
 
-### `npm ping`
+#### `npm ping`
 
 By default, npm installs from the primary npm registry, `registry.npmjs.org`.
 `npm doctor` hits a special ping endpoint within the registry. This can also be
@@ -42,7 +50,7 @@ what that is by running `npm config get registry`), and if you're using a
 private registry that doesn't support the `/whoami` endpoint supported by the
 primary registry, this check may fail.
 
-### `npm -v`
+#### `npm -v`
 
 While Node.js may come bundled with a particular version of npm, it's the
 policy of the CLI team that we recommend all users run `npm@latest` if they
@@ -52,7 +60,7 @@ releases typically only receive critical security and regression fixes. The
 team believes that the latest tested version of npm is almost always likely to
 be the most functional and defect-free version of npm.
 
-### `node -v`
+#### `node -v`
 
 For most users, in most circumstances, the best version of Node will be the
 latest long-term support (LTS) release. Those of you who want access to new
@@ -61,7 +69,7 @@ running a newer version, and some of you may be required to run an older
 version of Node because of enterprise change control policies. That's OK! But
 in general, the npm team recommends that most users run Node.js LTS.
 
-### `npm config get registry`
+#### `npm config get registry`
 
 Some of you may be installing from private package registries for your project
 or company. That's great! Others of you may be following tutorials or
@@ -70,7 +78,7 @@ having. Sometimes, this may entail changing the registry you're pointing at.
 This part of `npm doctor` just lets you, and maybe whoever's helping you with
 support, know that you're not using the default registry.
 
-### `which git`
+#### `which git`
 
 While it's documented in the README, it may not be obvious that npm needs Git
 installed to do many of the things that it does. Also, in some cases
@@ -78,14 +86,14 @@ installed to do many of the things that it does. Also, in some cases
 accessible via your `PATH` so that npm can find it. This check ensures that Git
 is available.
 
-### Permissions checks
+#### Permissions checks
 
 * Your cache must be readable and writable by the user running npm.
 * Global package binaries must be writable by the user running npm.
 * Your local `node_modules` path, if you're running `npm doctor` with a project
   directory, must be readable and writable by the user running npm.
 
-### Validate the checksums of cached packages
+#### Validate the checksums of cached packages
 
 When an npm package is published, the publishing process generates a checksum
 that npm uses at install time to verify that the package didn't get corrupted
@@ -95,8 +103,8 @@ get cache`, and see what's in that cache with `npm cache ls` – probably more
 than you were expecting!). In the event that there are corrupt packages in your
 cache, you should probably run `npm cache clean` and reset the cache.
 
-## SEE ALSO
+### See Also
 
-* npm-bugs(1)
-* npm-help(1)
-* npm-ping(1)
+* [npm-bugs](npm-bugs)
+* [npm-help](npm-help)
+* [npm-ping](npm-ping)

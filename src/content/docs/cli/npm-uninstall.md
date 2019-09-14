@@ -1,20 +1,30 @@
-npm-uninstall(1) -- Remove a package
-=============================
+---
+title: npm-uninstall
+description: Remove a package
+---
 
-## SYNOPSIS
+# npm-uninstall
 
-    npm uninstall [<@scope>/]<pkg>[@<version>]... [-S|--save|-D|--save-dev|-O|--save-optional|--no-save]
+## Remove a package
 
-    aliases: remove, rm, r, un, unlink
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm uninstall [<@scope>/]<pkg>[@<version>]... [-S|--save|-D|--save-dev|-O|--save-optional|--no-save]
+
+aliases: remove, rm, r, un, unlink
+```
+
+### Description
 
 This uninstalls a package, completely removing everything npm installed
 on its behalf.
 
 Example:
 
-    npm uninstall sax
+```bash
+npm uninstall sax
+```
 
 In global mode (ie, with `-g` or `--global` appended to the command),
 it uninstalls the current package context as a global package.
@@ -33,21 +43,22 @@ the package version in your main package.json:
 Further, if you have an `npm-shrinkwrap.json` then it will be updated as
 well.
 
-Scope is optional and follows the usual rules for `npm-scope(7)`.
+Scope is optional and follows the usual rules for [`npm-scope`](snpm-scope).
 
 Examples:
+```bash
+npm uninstall sax --save
+npm uninstall @myorg/privatepackage --save
+npm uninstall node-tap --save-dev
+npm uninstall dtrace-provider --save-optional
+npm uninstall lodash --no-save
+```
 
-    npm uninstall sax --save
-    npm uninstall @myorg/privatepackage --save
-    npm uninstall node-tap --save-dev
-    npm uninstall dtrace-provider --save-optional
-    npm uninstall lodash --no-save
+### See Also
 
-## SEE ALSO
-
-* npm-prune(1)
-* npm-install(1)
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-prune](npm-prune)
+* [npm-install](npm-install)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

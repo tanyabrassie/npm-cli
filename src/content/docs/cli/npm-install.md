@@ -1,23 +1,31 @@
-npm-install(1) -- Install a package
-===================================
+---
+title: npm-install
+description: Install a package
+---
 
-## SYNOPSIS
+# npm-install
 
-    npm install (with no args, in package dir)
-    npm install [<@scope>/]<name>
-    npm install [<@scope>/]<name>@<tag>
-    npm install [<@scope>/]<name>@<version>
-    npm install [<@scope>/]<name>@<version range>
-    npm install <git-host>:<git-user>/<repo-name>
-    npm install <git repo url>
-    npm install <tarball file>
-    npm install <tarball url>
-    npm install <folder>
+## Install a package
 
-    aliases: npm i, npm add
-    common options: [-P|--save-prod|-D|--save-dev|-O|--save-optional] [-E|--save-exact] [-B|--save-bundle] [--no-save] [--dry-run]
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm install (with no args, in package dir)
+npm install [<@scope>/]<name>
+npm install [<@scope>/]<name>@<tag>
+npm install [<@scope>/]<name>@<version>
+npm install [<@scope>/]<name>@<version range>
+npm install <git-host>:<git-user>/<repo-name>
+npm install <git repo url>
+npm install <tarball file>
+npm install <tarball url>
+npm install <folder>
+
+aliases: npm i, npm add
+common options: [-P|--save-prod|-D|--save-dev|-O|--save-optional] [-E|--save-exact] [-B|--save-bundle] [--no-save] [--dry-run]
+```
+
+### Description
 
 This command installs a package, and any packages that it depends on. If the
 package has a package-lock or shrinkwrap file, the installation of dependencies
@@ -29,7 +37,7 @@ A `package` is:
 * a) a folder containing a program described by a `package.json(5)` file
 * b) a gzipped tarball containing (a)
 * c) a url that resolves to (b)
-* d) a `<name>@<version>` that is published on the registry (see `npm-registry(7)`) with (c)
+* d) a `<name>@<version>` that is published on the registry (see [`npm-registry`](npm-registry)) with (c)
 * e) a `<name>@<tag>` (see `npm-dist-tag(1)`) that points to (d)
 * f) a `<name>` that has a "latest" tag satisfying (e)
 * g) a `<git remote url>` that resolves to (a)
@@ -137,14 +145,15 @@ after packing it up into a tarball (b).
 
     Examples:
 
-          npm install sax
-          npm install githubname/reponame
-          npm install @myorg/privatepackage
-          npm install node-tap --save-dev
-          npm install dtrace-provider --save-optional
-          npm install readable-stream --save-exact
-          npm install ansi-regex --save-bundle
-
+    ```bash
+    npm install sax
+    npm install githubname/reponame
+    npm install @myorg/privatepackage
+    npm install node-tap --save-dev
+    npm install dtrace-provider --save-optional
+    npm install readable-stream --save-exact
+    npm install ansi-regex --save-bundle
+    ```
 
     **Note**: If there is a file or folder named `<name>` in the current
     working directory, then it will try to install that, and only try to
@@ -158,8 +167,10 @@ after packing it up into a tarball (b).
 
     Example:
 
-          npm install sax@latest
-          npm install @myorg/mypackage@latest
+    ```bash
+    npm install sax@latest
+    npm install @myorg/mypackage@latest
+    ```
 
 * `npm install [<@scope>/]<name>@<version>`:
 
@@ -168,8 +179,10 @@ after packing it up into a tarball (b).
 
     Example:
 
-          npm install sax@0.1.1
-          npm install @myorg/privatepackage@1.5.0
+    ```bash
+    npm install sax@0.1.1
+    npm install @myorg/privatepackage@1.5.0
+    ```
 
 * `npm install [<@scope>/]<name>@<version range>`:
 
@@ -180,16 +193,19 @@ after packing it up into a tarball (b).
     treat it as a single argument.
 
     Example:
-
-          npm install sax@">=0.1.0 <0.2.0"
-          npm install @myorg/privatepackage@">=0.1.0 <0.2.0"
+    ```bash
+    npm install sax@">=0.1.0 <0.2.0"
+    npm install @myorg/privatepackage@">=0.1.0 <0.2.0"
+    ```
 
 * `npm install <git remote url>`:
 
     Installs the package from the hosted git provider, cloning it with `git`.
     For a full git remote url, only that URL will be attempted.
 
-          <protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]
+    ```bash
+      <protocol>://[<user>[:<password>]@]<hostname>[:<port>][:][/]<path>[#<commit-ish> | #semver:<semver>]
+    ```
 
     `<protocol>` is one of `git`, `git+ssh`, `git+http`, `git+https`, or
     `git+file`.
@@ -223,11 +239,13 @@ after packing it up into a tarball (b).
 
     Examples:
 
-          npm install git+ssh://git@github.com:npm/cli.git#v1.0.27
-          npm install git+ssh://git@github.com:npm/cli#semver:^5.0
-          npm install git+https://isaacs@github.com/npm/cli.git
-          npm install git://github.com/npm/cli.git#v1.0.27
-          GIT_SSH_COMMAND='ssh -i ~/.ssh/custom_ident' npm install git+ssh://git@github.com:npm/cli.git
+    ```bash
+    npm install git+ssh://git@github.com:npm/cli.git#v1.0.27
+    npm install git+ssh://git@github.com:npm/cli#semver:^5.0
+    npm install git+https://isaacs@github.com/npm/cli.git
+    npm install git://github.com/npm/cli.git#v1.0.27
+    GIT_SSH_COMMAND='ssh -i ~/.ssh/custom_ident' npm install git+ssh://git@github.com:npm/cli.git
+    ```
 
 * `npm install <githubname>/<githubrepo>[#<commit-ish>]`:
 * `npm install github:<githubname>/<githubrepo>[#<commit-ish>]`:
@@ -247,9 +265,11 @@ after packing it up into a tarball (b).
     done installing.
 
     Examples:
-
-          npm install mygithubuser/myproject
-          npm install github:mygithubuser/myproject
+    
+    ```bash
+    npm install mygithubuser/myproject
+    npm install github:mygithubuser/myproject
+   ```
 
 * `npm install gist:[<githubname>/]<gistID>[#<commit-ish>|#semver:<semver>]`:
 
@@ -262,8 +282,10 @@ after packing it up into a tarball (b).
     done installing.
 
     Example:
-
-          npm install gist:101a11beef
+    
+    ```bash
+    npm install gist:101a11beef
+    ```
 
 * `npm install bitbucket:<bitbucketname>/<bitbucketrepo>[#<commit-ish>]`:
 
@@ -282,8 +304,10 @@ after packing it up into a tarball (b).
     done installing.
 
     Example:
-
-          npm install bitbucket:mybitbucketuser/myproject
+    
+    ```bash
+    npm install bitbucket:mybitbucketuser/myproject
+    ```
 
 * `npm install gitlab:<gitlabname>/<gitlabrepo>[#<commit-ish>]`:
 
@@ -302,14 +326,18 @@ after packing it up into a tarball (b).
     done installing.
 
     Example:
-
-          npm install gitlab:mygitlabuser/myproject
-          npm install gitlab:myusr/myproj#semver:^5.0
+    
+    ```bash
+    npm install gitlab:mygitlabuser/myproject
+    npm install gitlab:myusr/myproj#semver:^5.0
+    ```
 
 You may combine multiple arguments, and even multiple types of arguments.
 For example:
 
-    npm install sax@">=0.1.0 <0.2.0" bench supervisor
+```bash
+npm install sax@">=0.1.0 <0.2.0" bench supervisor
+```
 
 The `--tag` argument will apply to all of the specified install targets. If a
 tag with the given name exists, the tagged version is preferred over newer
@@ -324,7 +352,9 @@ instead of checking `node_modules` and downloading dependencies.
 The `-f` or `--force` argument will force npm to fetch remote resources even if a
 local copy exists on disk.
 
-    npm install sax --force
+```bash
+npm install sax --force
+```
 
 The `-g` or `--global` argument will cause npm to install the package globally
 rather than locally.  See `npm-folders(5)`.
@@ -370,28 +400,31 @@ the configured registries.  See `npm-audit(1)` for details on what is sent.
 See `npm-config(7)`.  Many of the configuration params have some
 effect on installation, since that's most of what npm does.
 
-## ALGORITHM
+#### Algorithm
 
 To install a package, npm uses the following algorithm:
-
-    load the existing node_modules tree from disk
-    clone the tree
-    fetch the package.json and assorted metadata and add it to the clone
-    walk the clone and add any missing dependencies
-      dependencies will be added as close to the top as is possible
-      without breaking any other modules
-    compare the original tree with the cloned tree and make a list of
-    actions to take to convert one to the other
-    execute all of the actions, deepest first
-      kinds of actions are install, update, remove and move
+```bash
+load the existing node_modules tree from disk
+clone the tree
+fetch the package.json and assorted metadata and add it to the clone
+walk the clone and add any missing dependencies
+  dependencies will be added as close to the top as is possible
+  without breaking any other modules
+compare the original tree with the cloned tree and make a list of
+actions to take to convert one to the other
+execute all of the actions, deepest first
+  kinds of actions are install, update, remove and move
+```
 
 For this `package{dep}` structure: `A{B,C}, B{C}, C{D}`,
 this algorithm produces:
 
-    A
-    +-- B
-    +-- C
-    +-- D
+```bash
+A
++-- B
++-- C
++-- D
+```
 
 That is, the dependency from B to C is satisfied by the fact that A
 already caused C to be installed at a higher level. D is still installed
@@ -399,11 +432,13 @@ at the top level because nothing conflicts with it.
 
 For `A{B,C}, B{C,D@1}, C{D@2}`, this algorithm produces:
 
-    A
-    +-- B
-    +-- C
-       `-- D@2
-    +-- D@1
+```bash
+A
++-- B
++-- C
+   `-- D@2
++-- D@1
+```
 
 Because B's D@1 will be installed in the top level, C now has to install D@2
 privately for itself. This algorithm is deterministic, but different trees may
@@ -423,7 +458,9 @@ There are some very rare and pathological edge-cases where a cycle can
 cause npm to try to install a never-ending tree of packages.  Here is
 the simplest case:
 
-    A -> B -> A' -> B' -> A -> B -> A' -> B' -> A -> ...
+```bash
+A -> B -> A' -> B' -> A -> B -> A' -> B' -> A -> ...
+```
 
 where `A` is some version of a package, and `A'` is a different version
 of the same package.  Because `B` depends on a different version of `A`
@@ -438,20 +475,20 @@ folder ancestors.  A more correct, but more complex, solution would be
 to symlink the existing version into the new location.  If this ever
 affects a real use-case, it will be investigated.
 
-## SEE ALSO
+### See Also
 
-* npm-folders(5)
-* npm-update(1)
-* npm-audit(1)
-* npm-link(1)
-* npm-rebuild(1)
-* npm-scripts(7)
-* npm-build(1)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-registry(7)
-* npm-dist-tag(1)
-* npm-uninstall(1)
-* npm-shrinkwrap(1)
-* package.json(5)
+* [npm-folders](npm-folders)
+* [npm-update](npm-update)
+* [npm-audit](npm-audit)
+* [npm-link](npm-link)
+* [npm-rebuild](npm-rebuild)
+* [npm-scripts](npm-scripts)
+* [npm-build](npm-build)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-registry](npm-registry)
+* [npm-dist-tag](npm-dist-tag)
+* [npm-uninstall](npm-uninstall)
+* [npm-shrinkwrap](npm-shrinkwrap)
+* [package.json](package.json)

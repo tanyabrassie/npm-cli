@@ -1,11 +1,18 @@
-npm-completion(1) -- Tab Completion for npm
-===========================================
+---
+title: npm-completion
+description: Tab Completion for npm
+---
 
-## SYNOPSIS
+# npm-completion
 
-    source <(npm completion)
+## Tab Completion for npm
 
-## DESCRIPTION
+### Synopsis
+```bash
+source <(npm completion)
+```
+
+### Description
 
 Enables tab-completion in all npm commands.
 
@@ -14,8 +21,10 @@ loads the completions into your current shell.  Adding it to
 your ~/.bashrc or ~/.zshrc will make the completions available
 everywhere:
 
-    npm completion >> ~/.bashrc
-    npm completion >> ~/.zshrc
+```bash
+npm completion >> ~/.bashrc
+npm completion >> ~/.zshrc
+```
 
 You may of course also pipe the output of `npm completion` to a file
 such as `/usr/local/etc/bash_completion.d/npm` or 
@@ -26,7 +35,7 @@ When `COMP_CWORD`, `COMP_LINE`, and `COMP_POINT` are defined in the
 environment, `npm completion` acts in "plumbing mode", and outputs
 completions based on the arguments.
 
-## SEE ALSO
+### See Also
 
-* npm-developers(7)
-* npm(1)
+* [npm-developers](npm-developers)
+* [npm](npm)

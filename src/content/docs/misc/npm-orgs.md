@@ -1,7 +1,13 @@
-npm-orgs(7) -- Working with Teams & Orgs
-========================================
+---
+title: npm-orgs
+description: Working with Teams & Orgs
+---
 
-## DESCRIPTION
+# npm-orgs
+
+## Working with Teams & Orgs
+
+### Description
 
 There are three levels of org users:
 
@@ -20,11 +26,11 @@ There are two main commands:
 1. `npm team` see npm-team(1) for more details
 2. `npm access` see npm-access(1) for more details
 
-## Team Admins create teams
+### Team Admins create teams
 
 * Check who you’ve added to your org:
 
-```
+```bash
 npm team ls <org>:developers
 ```
 
@@ -32,59 +38,59 @@ npm team ls <org>:developers
 
 * Create a new team:
 
-```
+```bash
 npm team create <org:team>
 ```
 
 * Add members to that team:
 
-```
+```bash
 npm team add <org:team> <user>
 ```
 
-## Publish a package and adjust package access
+### Publish a package and adjust package access
 
 * In package directory, run
 
-```
+```bash
 npm init --scope=<org>
 ```
 to scope it for your org & publish as usual
 
 * Grant access:  
 
-```
+```bash
 npm access grant <read-only|read-write> <org:team> [<package>]
 ```
 
 * Revoke access:
 
-```
+```bash
 npm access revoke <org:team> [<package>]
 ```
 
-## Monitor your package access
+### Monitor your package access
 
 * See what org packages a team member can access:
 
-```
+```bash
 npm access ls-packages <org> <user>
 ```
 
 * See packages available to a specific team:
 
-```
+```bash
 npm access ls-packages <org:team>
 ```
 
 * Check which teams are collaborating on a package:
 
-```
+```bash
 npm access ls-collaborators <pkg>
 ```
 
-## SEE ALSO
+### See also
 
-* npm-team(1)
-* npm-access(1)
-* npm-scope(7)
+* [npm-team](npm-team)
+* [npm-access](npm-access)
+* [npm-scope](npm-scope)

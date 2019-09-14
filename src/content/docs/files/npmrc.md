@@ -1,7 +1,13 @@
-npmrc(5) -- The npm config files
-================================
+---
+title: npmrc
+description: The npm config files
+---
 
-## DESCRIPTION
+# npmrc
+
+## The npm config files
+
+### Description
 
 npm gets its config settings from the command line, environment
 variables, and `npmrc` files.
@@ -11,7 +17,7 @@ of the user and global npmrc files.
 
 For a list of available configuration options, see npm-config(7).
 
-## FILES
+### Files
 
 The four relevant files are:
 
@@ -24,7 +30,9 @@ All npm config files are an ini-formatted list of `key = value`
 parameters.  Environment variables can be replaced using
 `${VARIABLE_NAME}`. For example:
 
-    prefix = ${HOME}/.npm-packages
+```bash
+prefix = ${HOME}/.npm-packages
+```
 
 Each of these files is loaded, and config options are resolved in
 priority order.  For example, a setting in the userconfig file would
@@ -33,8 +41,10 @@ override the setting in the globalconfig file.
 Array values are specified by adding "[]" after the key name. For
 example:
 
-    key[] = "first value"
-    key[] = "second value"
+```bash
+key[] = "first value"
+key[] = "second value"
+```
 
 #### Comments
 
@@ -42,11 +52,13 @@ Lines in `.npmrc` files are interpreted as comments when they begin with a `;` o
 
 For example:
 
-    # last modified: 01 Jan 2016
-    ; Set a new registry for a scoped package
-    @myscope:registry=https://mycustomregistry.example.org
+```bash
+# last modified: 01 Jan 2016
+; Set a new registry for a scoped package
+@myscope:registry=https://mycustomregistry.example.org
+```
 
-### Per-project config file
+#### Per-project config file
 
 When working locally in a project, a `.npmrc` file in the root of the
 project (ie, a sibling of `node_modules` and `package.json`) will set
@@ -60,18 +72,18 @@ globally, or in a different location.
 Additionally, this file is not read in global mode, such as when running
 `npm install -g`.
 
-### Per-user config file
+#### Per-user config file
 
 `$HOME/.npmrc` (or the `userconfig` param, if set in the environment
 or on the command line)
 
-### Global config file
+#### Global config file
 
 `$PREFIX/etc/npmrc` (or the `globalconfig` param, if set above):
 This file is an ini-file formatted list of `key = value` parameters.
 Environment variables can be replaced as above.
 
-### Built-in config file
+#### Built-in config file
 
 `path/to/npm/itself/npmrc`
 
@@ -81,10 +93,10 @@ script that comes with npm.  This is primarily for distribution
 maintainers to override default configs in a standard and consistent
 manner.
 
-## SEE ALSO
+### See also
 
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* package.json(5)
-* npm(1)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [package.json](package.json)
+* [npm](npm)

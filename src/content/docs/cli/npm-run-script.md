@@ -1,13 +1,21 @@
-npm-run-script(1) -- Run arbitrary package scripts
-==================================================
+---
+title: npm-run-script
+description: Run arbitrary package scripts
+---
 
-## SYNOPSIS
+# npm-run-script
 
-    npm run-script <command> [--silent] [-- <args>...]
+## Run arbitrary package scripts
 
-    alias: npm run
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm run-script <command> [--silent] [-- <args>...]
+
+alias: npm run
+```
+
+### Description
 
 This runs an arbitrary command from a package's `"scripts"` object.  If no
 `"command"` is provided, it will list the available scripts.  `run[-script]` is
@@ -20,7 +28,9 @@ use custom arguments when executing scripts. The special option `--` is used by
 [getopt](https://goo.gl/KxMmtG) to delimit the end of the options. npm will pass
 all the arguments after the `--` directly to your script:
 
-    npm run test -- --grep="pattern"
+```bash
+npm run test -- --grep="pattern"
+```
 
 The arguments will only be passed to the script specified after ```npm run```
 and not to any pre or post script.
@@ -36,11 +46,15 @@ locally-installed dependencies can be used without the `node_modules/.bin`
 prefix. For example, if there is a `devDependency` on `tap` in your package,
 you should write:
 
-    "scripts": {"test": "tap test/\*.js"}
+```bash
+"scripts": {"test": "tap test/\*.js"}
+```
 
 instead of
 
-	"scripts": {"test": "node_modules/.bin/tap test/\*.js"}  
+```bash
+"scripts": {"test": "node_modules/.bin/tap test/\*.js"}
+```
 
 to run your tests.
 
@@ -72,11 +86,11 @@ You can use the `--if-present` flag to avoid exiting with a non-zero exit code
 when the script is undefined. This lets you run potentially undefined scripts
 without breaking the execution chain.
 
-## SEE ALSO
+### See Also
 
-* npm-scripts(7)
-* npm-test(1)
-* npm-start(1)
-* npm-restart(1)
-* npm-stop(1)
-* npm-config(7)
+* [npm-scripts](npm-scripts)
+* [npm-test](npm-test)
+* [npm-start](npm-start)
+* [npm-restart](npm-restart)
+* [npm-stop](npm-stop)
+* [npm-config](npm-config)

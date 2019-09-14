@@ -1,11 +1,18 @@
-npm-prune(1) -- Remove extraneous packages
-==========================================
+---
+title: npm-prune
+description: Remove extraneous packages
+---
 
-## SYNOPSIS
+# npm-prune
+## Remove extraneous packages
 
-    npm prune [[<@scope>/]<pkg>...] [--production] [--dry-run] [--json]
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm prune [[<@scope>/]<pkg>...] [--production] [--dry-run] [--json]
+```
+
+### Description
 
 This command removes "extraneous" packages.  If a package name is
 provided, then only packages matching one of the supplied names are
@@ -31,8 +38,8 @@ this command with the `--production` flag.
 If you've disabled package-locks then extraneous modules will not be removed
 and it's up to you to run `npm prune` from time-to-time to remove them.
 
-## SEE ALSO
+### See Also
 
-* npm-uninstall(1)
-* npm-folders(5)
-* npm-ls(1)
+* [npm-uninstall](npm-uninstall)
+* [npm-folders](npm-folders)
+* [npm-ls](npm-ls)

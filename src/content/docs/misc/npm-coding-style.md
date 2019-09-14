@@ -1,7 +1,12 @@
-npm-coding-style(7) -- npm's "funny" coding style
-=================================================
+---
+title: npm-coding-style
+description: npm's "funny" coding style
+---
 
-## DESCRIPTION
+# npm-coding-style
+## npm's "funny" coding style
+
+### Description
 
 npm's coding style is a bit unconventional.  It is not different for
 difference's sake, but rather a carefully crafted style that is
@@ -12,49 +17,55 @@ make your code conform to npm's style.
 
 Note: this concerns npm's code not the specific packages that you can download from the npm registry.
 
-## Line Length
+### Line Length
 
 Keep lines shorter than 80 characters.  It's better for lines to be
 too short than to be too long.  Break up long lists, objects, and other
 statements onto multiple lines.
 
-## Indentation
+### Indentation
 
 Two-spaces.  Tabs are better, but they look like hell in web browsers
 (and on GitHub), and node uses 2 spaces, so that's that.
 
 Configure your editor appropriately.
 
-## Curly braces
+### Curly braces
 
 Curly braces belong on the same line as the thing that necessitates them.
 
 Bad:
 
-    function ()
-    {
+```javascript
+function ()
+{
+```
 
 Good:
-
-    function () {
+```javascript
+function () {
+```
 
 If a block needs to wrap to the next line, use a curly brace.  Don't
 use it if it doesn't.
 
 Bad:
 
-    if (foo) { bar() }
-    while (foo)
-      bar()
-
+```javascript
+if (foo) { bar() }
+while (foo)
+  bar()
+```
 Good:
 
-    if (foo) bar()
-    while (foo) {
-      bar()
-    }
+```javascript
+if (foo) bar()
+while (foo) {
+  bar()
+}
+```
 
-## Semicolons
+### Semicolons
 
 Don't use them except in four situations:
 
@@ -68,52 +79,60 @@ Don't use them except in four situations:
 
 Some examples of good semicolon usage:
 
-    ;(x || y).doSomething()
-    ;[a, b, c].forEach(doSomething)
-    for (var i = 0; i < 10; i ++) {
-      switch (state) {
-        case 'begin': start(); continue
-        case 'end': finish(); break
-        default: throw new Error('unknown state')
-      }
-      end()
-    }
+```javascript
+;(x || y).doSomething()
+;[a, b, c].forEach(doSomething)
+for (var i = 0; i < 10; i ++) {
+  switch (state) {
+    case 'begin': start(); continue
+    case 'end': finish(); break
+    default: throw new Error('unknown state')
+  }
+  end()
+}
+```
 
 Note that starting lines with `-` and `+` also should be prefixed
 with a semicolon, but this is much less common.
 
-## Comma First
+### Comma First
 
 If there is a list of things separated by commas, and it wraps
 across multiple lines, put the comma at the start of the next
 line, directly below the token that starts the list.  Put the
 final token in the list on a line by itself.  For example:
 
-    var magicWords = [ 'abracadabra'
-                     , 'gesundheit'
-                     , 'ventrilo'
-                     ]
-      , spells = { 'fireball' : function () { setOnFire() }
-                 , 'water' : function () { putOut() }
-                 }
-      , a = 1
-      , b = 'abc'
-      , etc
-      , somethingElse
+```javascript
+var magicWords = [ 'abracadabra'
+                 , 'gesundheit'
+                 , 'ventrilo'
+                 ]
+  , spells = { 'fireball' : function () { setOnFire() }
+             , 'water' : function () { putOut() }
+             }
+  , a = 1
+  , b = 'abc'
+  , etc
+  , somethingElse
+  ```
 
-## Quotes
+### Quotes
 Use single quotes for strings except to avoid escaping.
 
 Bad:
 
-    var notOk = "Just double quotes"
+```javascript
+var notOk = "Just double quotes"
+```
 
 Good:
 
-    var ok = 'String contains "double" quotes'
-    var alsoOk = "String contains 'single' quotes or apostrophe"
+```javascript
+var ok = 'String contains "double" quotes'
+var alsoOk = "String contains 'single' quotes or apostrophe"
+```
 
-## Whitespace
+### Whitespace
 
 Put a single space in front of `(` for anything other than a function call.
 Also use a single space wherever it makes things more readable.
@@ -121,11 +140,11 @@ Also use a single space wherever it makes things more readable.
 Don't leave trailing whitespace at the end of lines.  Don't indent empty
 lines.  Don't use more spaces than are helpful.
 
-## Functions
+### Functions
 
 Use named functions.  They make stack traces a lot easier to read.
 
-## Callbacks, Sync/async Style
+### Callbacks, Sync/async Style
 
 Use the asynchronous/non-blocking versions of things as much as possible.
 It might make more sense for npm to use the synchronous fs APIs, but this
@@ -138,12 +157,12 @@ argument is the Error or null.
 Be very careful never to ever ever throw anything.  It's worse than useless.
 Just send the error message back as the first argument to the callback.
 
-## Errors
+### Errors
 
 Always create a new Error object with your message.  Don't just return a
 string message to the callback.  Stack traces are handy.
 
-## Logging
+### Logging
 
 Logging is done using the [npmlog](https://github.com/npm/npmlog)
 utility.
@@ -156,7 +175,7 @@ occurs.
 Use appropriate log levels.  See `npm-config(7)` and search for
 "loglevel".
 
-## Case, naming, etc.
+### Case, naming, etc.
 
 Use `lowerCamelCase` for multiword identifiers when they refer to objects,
 functions, methods, properties, or anything not specified in this section.
@@ -174,7 +193,7 @@ Use a single uppercase letter for function names where the function
 would normally be anonymous, but needs to call itself recursively.  It
 makes it clear that it's a "throwaway" function.
 
-## null, undefined, false, 0
+### null, undefined, false, 0
 
 Boolean variables and functions should always be either `true` or
 `false`.  Don't set it to 0 unless it's supposed to be a number.
@@ -186,7 +205,7 @@ set to anything."
 
 Boolean objects are forbidden.
 
-## SEE ALSO
+### See Also
 
-* npm-developers(7)
-* npm(1)
+* [npm-developers](npm-developers)
+* [npm](npm)

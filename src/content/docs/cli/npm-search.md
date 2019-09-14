@@ -1,13 +1,21 @@
-npm-search(1) -- Search for packages
-====================================
+---
+title: npm-search
+description: Search for packages
+---
 
-## SYNOPSIS
+# npm-search
 
-    npm search [-l|--long] [--json] [--parseable] [--no-description] [search terms ...]
+## Search for packages
 
-    aliases: s, se, find
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm search [-l|--long] [--json] [--parseable] [--no-description] [search terms ...]
+
+aliases: s, se, find
+```
+
+### Description
 
 Search the registry for packages matching the search terms. `npm search`
 performs a linear, incremental, lexically-ordered search through package
@@ -31,9 +39,9 @@ quoted in most shells.)
 
 ### A Note on caching
 
-## CONFIGURATION
+### Configuration
 
-### description
+#### description
 
 * Default: true
 * Type: Boolean
@@ -41,21 +49,21 @@ quoted in most shells.)
 Used as `--no-description`, disables search matching in package descriptions and
 suppresses display of that field in results.
 
-### json
+#### json
 
 * Default: false
 * Type: Boolean
 
 Output search results as a JSON array.
 
-### parseable
+#### parseable
 
 * Default: false
 * Type: Boolean
 
 Output search results as lines with tab-separated columns.
 
-### long
+#### long
 
 * Default: false
 * Type: Boolean
@@ -65,28 +73,28 @@ lines. When disabled (default) search results are truncated to fit
 neatly on a single line. Modules with extremely long names will
 fall on multiple lines.
 
-### searchopts
+#### searchopts
 
 * Default: ""
 * Type: String
 
 Space-separated options that are always passed to search.
 
-### searchexclude
+#### searchexclude
 
 * Default: ""
 * Type: String
 
 Space-separated options that limit the results from search.
 
-### searchstaleness
+#### searchstaleness
 
 * Default: 900 (15 minutes)
 * Type: Number
 
 The age of the cache, in seconds, before another registry request is made.
 
-### registry
+#### registry
 
  * Default: https://registry.npmjs.org/
  * Type: url
@@ -97,10 +105,10 @@ repository, `npm search` will default to that registry when searching. Pass a
 different registry url such as the default above in order to override this
 setting.
 
-## SEE ALSO
+### See Also
 
-* npm-registry(7)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-view(1)
+* [npm-registry](npm-registry)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-view](npm-view)

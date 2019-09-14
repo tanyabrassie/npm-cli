@@ -1,7 +1,13 @@
-npm-package-locks(5) -- An explanation of npm lockfiles
-=====================================================
+---
+title: npm-package-locks
+description: An explanation of npm lockfiles
+---
 
-## DESCRIPTION
+# npm-package-locks
+
+## An explanation of npm lockfiles
+
+### Description
 
 Conceptually, the "input" to npm-install(1) is a package.json(5), while its
 "output" is a fully-formed `node_modules` tree: a representation of the
@@ -20,44 +26,53 @@ unable to do this. There are multiple reasons for this:
 
 As an example, consider package A:
 
-    {
-      "name": "A",
-      "version": "0.1.0",
-      "dependencies": {
-        "B": "<0.1.0"
-      }
-    }
+```json
+{
+  "name": "A",
+  "version": "0.1.0",
+  "dependencies": {
+    "B": "<0.1.0"
+  }
+}
+```
 
 package B:
 
-    {
-      "name": "B",
-      "version": "0.0.1",
-      "dependencies": {
-        "C": "<0.1.0"
-      }
-    }
+```json
+{
+  "name": "B",
+  "version": "0.0.1",
+  "dependencies": {
+    "C": "<0.1.0"
+  }
+}
+```
 
 and package C:
-
-    {
-      "name": "C",
-      "version": "0.0.1"
-    }
+```json
+{
+  "name": "C",
+  "version": "0.0.1"
+}
+```
 
 If these are the only versions of A, B, and C available in the
 registry, then a normal `npm install A` will install:
 
-    A@0.1.0
-    `-- B@0.0.1
-        `-- C@0.0.1
+```json
+A@0.1.0
+`-- B@0.0.1
+    `-- C@0.0.1
+```
 
 However, if B@0.0.2 is published, then a fresh `npm install A` will
 install:
 
-    A@0.1.0
-    `-- B@0.0.2
-        `-- C@0.0.1
+```bash
+A@0.1.0
+`-- B@0.0.2
+    `-- C@0.0.1
+```
 
 assuming the new version did not modify B's dependencies. Of course,
 the new version of B could include a new version of C and any number
@@ -73,23 +88,25 @@ npm-shrinkwrap.json(5). These files are called package locks, or lockfiles.
 Whenever you run `npm install`, npm generates or updates your package lock,
 which will look something like this:
 
-    {
-      "name": "A",
-      "version": "0.1.0",
-      ...metadata fields...
+```json
+{
+  "name": "A",
+  "version": "0.1.0",
+  ...metadata fields...
+  "dependencies": {
+    "B": {
+      "version": "0.0.1",
+      "resolved": "https://registry.npmjs.org/B/-/B-0.0.1.tgz",
+      "integrity": "sha512-DeAdb33F+"
       "dependencies": {
-        "B": {
-          "version": "0.0.1",
-          "resolved": "https://registry.npmjs.org/B/-/B-0.0.1.tgz",
-          "integrity": "sha512-DeAdb33F+"
-          "dependencies": {
-            "C": {
-              "version": "git://github.com/org/C.git#5c380ae319fc4efe9e7f2d9c78b0faa588fd99b4"
-            }
-          }
+        "C": {
+          "version": "git://github.com/org/C.git#5c380ae319fc4efe9e7f2d9c78b0faa588fd99b4"
         }
       }
     }
+  }
+}
+```
 
 This file describes an *exact*, and more importantly *reproducible*
 `node_modules` tree. Once it's present, any future installation will base its
@@ -113,12 +130,13 @@ executed afterwards. These scripts run for both `package-lock.json` and
 `npm-shrinkwrap.json`. For example to run some postprocessing on the generated
 file:
 
-    "scripts": {
-      "postshrinkwrap": "json -I -e \"this.myMetadata = $MY_APP_METADATA\""
-    }
+```json
+  "scripts": {
+    "postshrinkwrap": "json -I -e \"this.myMetadata = $MY_APP_METADATA\""
+  }
+```
 
-
-### Using locked packages
+#### Using locked packages
 
 Using a locked package is no different than using any package without a package
 lock: any commands that update `node_modules` and/or `package.json`'s
@@ -136,7 +154,7 @@ on. Additionally, the diffs from these changes are human-readable and will
 inform you of any changes npm has made to your `node_modules`, so you can notice
 if any transitive dependencies were updated, hoisted, etc.
 
-### Resolving lockfile conflicts
+#### Resolving lockfile conflicts
 
 Occasionally, two separate npm install will create package locks that cause
 merge conflicts in source control systems. As of `npm@5.7.0`, these conflicts
@@ -155,10 +173,10 @@ pre-`npm@5.7.0` versions of npm 5, albeit a bit more noisily. Note that if
 `package.json` itself conflicts, you will have to resolve that by hand and run
 `npm install` manually, even with the merge driver.
 
-## SEE ALSO
+### See Also
 
 * https://medium.com/@sdboyer/so-you-want-to-write-a-package-manager-4ae9c17d9527
-* package.json(5)
-* package-lock.json(5)
-* npm-shrinkwrap.json(5)
-* npm-shrinkwrap(1)
+* [package.json](package.json)
+* [package-lock.json](package-lock.json)
+* [npm-shrinkwrap.json](npm-shrinkwrap.json)
+* [npm-shrinkwrap](npm-shrinkwrap)

@@ -1,8 +1,13 @@
-#npm-adduser
+---
+title: npm-adduser
+description: Set access level on published packages
+---
 
-##Add a registry user account
+# npm-adduser
 
-### SYNOPSIS
+## Add a registry user account
+
+### Synopsis
 
 ```bash
 npm adduser [--registry=url] [--scope=@orgname] [--always-auth] [--auth-type=legacy]
@@ -10,7 +15,7 @@ npm adduser [--registry=url] [--scope=@orgname] [--always-auth] [--auth-type=leg
 aliases: login, add-user
 ```
 
-### DESCRIPTION
+### Description
 
 Create or verify a user named `<username>` in the specified registry, and
 save the credentials to the `.npmrc` file. If no registry is specified,
@@ -29,7 +34,7 @@ your existing record.
 
 `npm login` is an alias to `adduser` and behaves exactly the same way.
 
-### CONFIGURATION
+### Configuration
 
 #### registry
 
@@ -82,11 +87,11 @@ What authentication strategy to use with `adduser`/`login`. Some npm registries
 (for example, npmE) might support alternative auth strategies besides classic
 username/password entry in legacy npm.
 
-### SEE ALSO
+### See Also
 
-* npm-registry(7)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-owner(1)
-* npm-whoami(1)
+* [npm-registry](npm-registry)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-owner](npm-owner)
+* [npm-whoami](npm-whoami)

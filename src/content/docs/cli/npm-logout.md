@@ -1,11 +1,19 @@
-npm-logout(1) -- Log out of the registry
-========================================
+---
+title: npm-logout
+description: Log out of the registry
+---
 
-## SYNOPSIS
+# npm-logout
 
-    npm logout [--registry=<url>] [--scope=<@scope>]
+## Log out of the registry
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm logout [--registry=<url>] [--scope=<@scope>]
+```
+
+### Description
 
 When logged into a registry that supports token-based authentication, tell the
 server to end this token's session. This will invalidate the token everywhere
@@ -18,28 +26,30 @@ the current environment.
 If `--scope` is provided, this will find the credentials for the registry
 connected to that scope, if set.
 
-## CONFIGURATION
+### Configuration
 
-### registry
+#### registry
 
 Default: https://registry.npmjs.org/
 
 The base URL of the npm package registry. If `scope` is also specified,
 it takes precedence.
 
-### scope
+#### scope
 
 Default: The scope of your current project, if any, otherwise none.
 
-If specified, you will be logged out of the specified scope. See `npm-scope(7)`.
+If specified, you will be logged out of the specified scope. See [`npm-scope`](npm-scope).
 
-    npm logout --scope=@myco
+```bash
+npm logout --scope=@myco
+```
 
-## SEE ALSO
+### See Also
 
-* npm-adduser(1)
-* npm-registry(7)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-whoami(1)
+* [npm-adduser](npm-adduser)
+* [npm-registry](npm-registry)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-whoami](npm-whoami)

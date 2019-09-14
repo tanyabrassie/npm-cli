@@ -1,11 +1,19 @@
-npm-outdated(1) -- Check for outdated packages
-==============================================
+---
+title: npm-outdated
+description: Check for outdated packages
+---
 
-## SYNOPSIS
+# npm-outdated
 
-    npm outdated [[<@scope>/]<pkg> ...]
+## Check for outdated packages
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm outdated [[<@scope>/]<pkg> ...]
+```
+
+### Description
 
 This command will check the registry to see if any (or, specific) installed
 packages are currently outdated.
@@ -33,7 +41,7 @@ In the output:
 
 ### An example
 
-```
+```bash
 $ npm outdated
 Package      Current   Wanted   Latest  Location
 glob          5.0.15   5.0.15    6.0.1  test-outdated-output
@@ -69,30 +77,30 @@ A few things to note:
 * `once` is just plain out of date. Reinstalling `node_modules` from scratch or
   running `npm update` will bring it up to spec.
 
-## CONFIGURATION
+### Configuration
 
-### json
+#### json
 
 * Default: false
 * Type: Boolean
 
 Show information in JSON format.
 
-### long
+#### long
 
 * Default: false
 * Type: Boolean
 
 Show extended information.
 
-### parseable
+#### parseable
 
 * Default: false
 * Type: Boolean
 
 Show parseable output instead of tree view.
 
-### global
+#### global
 
 * Default: false
 * Type: Boolean
@@ -100,16 +108,16 @@ Show parseable output instead of tree view.
 Check packages in the global install prefix instead of in the current
 project.
 
-### depth
+#### depth
 
 * Default: 0
 * Type: Int
 
 Max depth for checking dependency tree.
 
-## SEE ALSO
+### See Also
 
-* npm-update(1)
-* npm-dist-tag(1)
-* npm-registry(7)
-* npm-folders(5)
+* [npm-update](npm-update)
+* [npm-dist-tag](npm-dist-tag)
+* [npm-registry](npm-registry)
+* [npm-folders](npm-folders)

@@ -1,24 +1,32 @@
-npm-prefix(1) -- Display prefix
-===============================
+---
+title: npm-prefix
+description: Display prefix
+---
 
-## SYNOPSIS
+# npm-prefix
 
-    npm prefix [-g]
+## Display prefix
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm prefix [-g]
+```
+
+### Description
 
 Print the local prefix to standard out. This is the closest parent directory
 to contain a `package.json` file or `node_modules` directory, unless `-g` is
 also specified.
 
 If `-g` is specified, this will be the value of the global prefix. See
-`npm-config(7)` for more detail.
+[`npm-config`](npm-config) for more detail.
 
-## SEE ALSO
+### See Also
 
-* npm-root(1)
-* npm-bin(1)
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-root](npm-root)
+* [npm-bin](npm-bin)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

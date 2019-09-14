@@ -1,11 +1,19 @@
-npm-restart(1) -- Restart a package
-===================================
+---
+title: npm-restart
+description: Restart a package
+---
 
-## SYNOPSIS
+# npm-restart
 
-    npm restart [-- <args>]
+## Restart a package
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm restart [-- <args>]
+```
+
+### Description
 
 This restarts a package.
 
@@ -22,7 +30,7 @@ pre- and post- scripts, in the order given below:
 8. poststart
 9. postrestart
 
-## NOTE
+### Note
 
 Note that the "restart" script is run **in addition to** the "stop"
 and "start" scripts, not instead of them.
@@ -30,11 +38,11 @@ and "start" scripts, not instead of them.
 This is the behavior as of `npm` major version 2.  A change in this
 behavior will be accompanied by an increase in major version number
 
-## SEE ALSO
+### See Also
 
-* npm-run-script(1)
-* npm-scripts(7)
-* npm-test(1)
-* npm-start(1)
-* npm-stop(1)
-* npm-restart(3)
+* [npm-run-script](npm-run-script)
+* [npm-scripts](npm-scripts)
+* [npm-test](npm-test)
+* [npm-start](npm-start)
+* [npm-stop](npm-stop)
+* [npm-restart](npm-restart)

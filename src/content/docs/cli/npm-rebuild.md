@@ -1,19 +1,27 @@
-npm-rebuild(1) -- Rebuild a package
-===================================
+---
+title: npm-rebuild
+description: Rebuild a package
+---
 
-## SYNOPSIS
+# npm-rebuildd
 
-    npm rebuild [[<@scope>/<name>]...]
+## Rebuild a package
 
-    alias: npm rb
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm rebuild [[<@scope>/<name>]...]
+
+alias: npm rb
+```
+
+### Description
 
 This command runs the `npm build` command on the matched folders.  This is useful
 when you install a new version of node, and must recompile all your C++ addons with
 the new binary.
 
-## SEE ALSO
+### See Also
 
-* npm-build(1)
-* npm-install(1)
+* [npm-build](npm-build)
+* [npm-install](npm-install)

@@ -1,15 +1,23 @@
-npm-version(1) -- Bump a package version
-========================================
+---
+title: npm-version
+description: Bump a package version
+---
 
-## SYNOPSIS
+# npm-version
 
-    npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
+## Bump a package version
 
-    'npm [-v | --version]' to print npm version
-    'npm view <pkg> version' to view a package's published version
-    'npm ls' to inspect current package/dependency versions
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease [--preid=<prerelease-id>] | from-git]
+
+'npm [-v | --version]' to print npm version
+'npm view <pkg> version' to view a package's published version
+'npm ls' to inspect current package/dependency versions
+```
+
+### Description
 
 Run this in a package directory to bump the version and write the new
 data back to `package.json`, `package-lock.json`, and, if present, `npm-shrinkwrap.json`.
@@ -31,20 +39,24 @@ use it as a commit message when creating a version commit.  If the
 `message` config contains `%s` then that will be replaced with the
 resulting version number.  For example:
 
-    npm version patch -m "Upgrade to %s for reasons"
+```bash
+npm version patch -m "Upgrade to %s for reasons"
+```
 
 If the `sign-git-tag` config is set, then the tag will be signed using
 the `-s` flag to git.  Note that you must have a default GPG key set up
 in your git config for this to work properly.  For example:
 
-    $ npm config set sign-git-tag true
-    $ npm version patch
+```bash
+$ npm config set sign-git-tag true
+$ npm version patch
 
-    You need a passphrase to unlock the secret key for
-    user: "isaacs (http://blog.izs.me/) <i@izs.me>"
-    2048-bit RSA key, ID 6C481CF6, created 2010-08-31
+You need a passphrase to unlock the secret key for
+user: "isaacs (http://blog.izs.me/) <i@izs.me>"
+2048-bit RSA key, ID 6C481CF6, created 2010-08-31
 
-    Enter passphrase:
+Enter passphrase:
+```
 
 If `preversion`, `version`, or `postversion` are in the `scripts` property of
 the package.json, they will be executed as part of running `npm version`.
@@ -66,19 +78,21 @@ The exact order of execution is as follows:
 
 Take the following example:
 
+```json
     "scripts": {
       "preversion": "npm test",
       "version": "npm run build && git add -A dist",
       "postversion": "git push && git push --tags && rm -rf build/temp"
     }
+```
 
 This runs all your tests, and proceeds only if they pass. Then runs your `build` script, and
 adds everything in the `dist` directory to the commit. After the commit, it pushes the new commit
 and tag up to the server, and deletes the `build/temp` directory.
 
-## CONFIGURATION
+### Configuration
 
-### allow-same-version
+#### allow-same-version
 
 * Default: false
 * Type: Boolean
@@ -86,21 +100,21 @@ and tag up to the server, and deletes the `build/temp` directory.
 Prevents throwing an error when `npm version` is used to set the new version 
 to the same value as the current version.
 
-### git-tag-version
+#### git-tag-version
 
 * Default: true
 * Type: Boolean
 
 Commit and tag the version change.
 
-### commit-hooks
+#### commit-hooks
 
 * Default: true
 * Type: Boolean
 
 Run git commit hooks when committing the version change.
 
-### sign-git-tag
+#### sign-git-tag
 
 * Default: false
 * Type: Boolean
@@ -109,11 +123,11 @@ Pass the `-s` flag to git to sign the tag.
 
 Note that you must have a default GPG key set up in your git config for this to work properly.
 
-## SEE ALSO
+### See Also
 
-* npm-init(1)
-* npm-run-script(1)
-* npm-scripts(7)
-* package.json(5)
-* semver(7)
-* config(7)
+* [npm-init](npm-init)
+* [npm-run-script](npm-run-script)
+* [npm-scripts](npm-scripts)
+* [package.json](package.json)
+* [semver](semver)
+* [config](config)

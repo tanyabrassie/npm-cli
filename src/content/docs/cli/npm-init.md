@@ -1,38 +1,45 @@
-npm-init(1) -- create a package.json file
-=======================================================
+---
+title: npm-init
+description: create a package.json file
+---
 
-## SYNOPSIS
+# npm-init
 
-    npm init [--force|-f|--yes|-y|--scope]
-    npm init <@scope> (same as `npx <@scope>/create`)
-    npm init [<@scope>/]<name> (same as `npx [<@scope>/]create-<name>`)
+## create a package.json file
 
-## EXAMPLES
+### Synopsis
+```bash
+npm init [--force|-f|--yes|-y|--scope]
+npm init <@scope> (same as `npx <@scope>/create`)
+npm init [<@scope>/]<name> (same as `npx [<@scope>/]create-<name>`)
+```
+
+### Examples
 
 Create a new React-based project using [`create-react-app`](https://npm.im/create-react-app):
-```
+```bash
 $ npm init react-app ./my-react-app
 ```
 
 Create a new `esm`-compatible package using [`create-esm`](https://npm.im/create-esm):
-```
+```bash
 $ mkdir my-esm-lib && cd my-esm-lib
 $ npm init esm --yes
 ```
 
 Generate a plain old package.json using legacy init:
-```
+```bash
 $ mkdir my-npm-pkg && cd my-npm-pkg
 $ git init
 $ npm init
 ```
 
 Generate it without having it ask any questions:
-```
+```bash
 $ npm init -y
 ```
 
-## DESCRIPTION
+### Description
 
 `npm init <initializer>` can be used to set up a new or existing npm package.
 
@@ -58,9 +65,9 @@ it will keep any fields and values that were already set. You can also use
 `-y`/`--yes` to skip the questionnaire altogether. If you pass `--scope`, it
 will create a scoped package.
 
-## SEE ALSO
+### See Also
 
 * <https://github.com/isaacs/init-package-json>
-* package.json(5)
-* npm-version(1)
-* npm-scope(7)
+* [package.json](package.json)
+* [npm-version](npm-version)
+* [npm-scope](npm-scope)

@@ -1,7 +1,13 @@
-npm-registry(7) -- The JavaScript Package Registry
-==================================================
+---
+title: npm-registry
+description: The JavaScript Package Registry
+---
 
-## DESCRIPTION
+# npm-registry
+
+##  The JavaScript Package Registry
+
+### Description
 
 To resolve packages by name and version, npm talks to a registry website
 that implements the CommonJS Package Registry specification for reading
@@ -29,7 +35,7 @@ The registry URL used is determined by the scope of the package (see
 supplied by the `registry` config parameter.  See `npm-config(1)`,
 `npmrc(5)`, and `npm-config(7)` for more on managing npm's configuration.
 
-## Does npm send any information about me back to the registry?
+### Does npm send any information about me back to the registry?
 
 Yes.
 
@@ -52,7 +58,7 @@ about your environment:
 The npm registry does not try to correlate the information in these headers
 with any authenticated accounts that may be used in the same requests.
 
-## Can I run my own private registry?
+### Can I run my own private registry?
 
 Yes!
 
@@ -67,7 +73,7 @@ default will only publish internally.
 If you then want to publish a package for the whole world to see, you can
 simply override the `--registry` option for that `publish` command.
 
-## I don't want my package published in the official registry. It's private.
+### I don't want my package published in the official registry. It's private.
 
 Set `"private": true` in your package.json to prevent it from being
 published at all, or
@@ -76,25 +82,25 @@ to force it to be published only to your internal registry.
 
 See `package.json(5)` for more info on what goes in the package.json file.
 
-## Will you replicate from my registry into the public one?
+### Will you replicate from my registry into the public one?
 
 No.  If you want things to be public, then publish them into the public
 registry using npm.  What little security there is would be for nought
 otherwise.
 
-## Do I have to use couchdb to build a registry that npm can talk to?
+### Do I have to use couchdb to build a registry that npm can talk to?
 
 No, but it's way easier.  Basically, yes, you do, or you have to
 effectively implement the entire CouchDB API anyway.
 
-## Is there a website or something to see package docs and such?
+### Is there a website or something to see package docs and such?
 
 Yes, head over to <https://www.npmjs.com/>
 
-## SEE ALSO
+### See also
 
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-developers(7)
-* npm-disputes(7)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-developers](npm-developers)
+* [npm-disputes](npm-disputes)

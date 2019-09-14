@@ -1,19 +1,27 @@
-npm-cache(1) -- Manipulates packages cache
-==========================================
+---
+title: npm-cache
+description: Manipulates packages cache
+---
 
-## SYNOPSIS
+# npm-cache
 
-    npm cache add <tarball file>
-    npm cache add <folder>
-    npm cache add <tarball url>
-    npm cache add <name>@<version>
+## Manipulates packages cache
 
-    npm cache clean [<path>]
-    aliases: npm cache clear, npm cache rm
+### Synopsis
 
-    npm cache verify
+```bash
+npm cache add <tarball file>
+npm cache add <folder>
+npm cache add <tarball url>
+npm cache add <name>@<version>
 
-## DESCRIPTION
+npm cache clean [<path>]
+aliases: npm cache clear, npm cache rm
+
+npm cache verify
+```
+
+### Description
 
 Used to add, list, or clean the npm cache folder.
 
@@ -29,7 +37,7 @@ Used to add, list, or clean the npm cache folder.
   Verify the contents of the cache folder, garbage collecting any unneeded data,
   and verifying the integrity of the cache index and all cached data.
 
-## DETAILS
+### Details
 
 npm stores cache data in an opaque directory within the configured `cache`,
 named `_cacache`. This directory is a `cacache`-based content-addressable cache
@@ -51,7 +59,7 @@ directly.
 npm will not remove data by itself: the cache will grow as new packages are
 installed.
 
-## A NOTE ABOUT THE CACHE'S DESIGN
+### A note about the cache's design
 
 The npm cache is strictly a cache: it should not be relied upon as a persistent
 and reliable data store for package data. npm makes no guarantee that a
@@ -62,22 +70,22 @@ if it does return data, that data will be exactly the data that was inserted.
 To run an offline verification of existing cache contents, use `npm cache
 verify`.
 
-## CONFIGURATION
+### Configuration
 
-### cache
+#### cache
 
 Default: `~/.npm` on Posix, or `%AppData%/npm-cache` on Windows.
 
 The root cache folder.
 
-## SEE ALSO
+### See Also
 
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-install(1)
-* npm-publish(1)
-* npm-pack(1)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-install](npm-install)
+* [npm-publish](npm-publish)
+* [npm-pack](npm-pack)
 * https://npm.im/cacache
 * https://npm.im/pacote

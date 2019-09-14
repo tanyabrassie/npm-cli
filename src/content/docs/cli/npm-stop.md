@@ -1,18 +1,26 @@
-npm-stop(1) -- Stop a package
-=============================
+---
+title: npm-stop
+description: Stop a package
+---
 
-## SYNOPSIS
+# npm-stop
 
-    npm stop [-- <args>]
+## Stop a package
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm stop [-- <args>]
+```
+
+### Description
 
 This runs a package's "stop" script, if one was provided.
 
-## SEE ALSO
+### See Also
 
-* npm-run-script(1)
-* npm-scripts(7)
-* npm-test(1)
-* npm-start(1)
-* npm-restart(1)
+* [npm-run-script](npm-run-script)
+* [npm-scripts](npm-scripts)
+* [npm-test](npm-test)
+* [npm-start](npm-start)
+* [npm-restart](npm-restart)

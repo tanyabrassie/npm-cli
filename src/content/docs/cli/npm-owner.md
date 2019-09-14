@@ -1,15 +1,22 @@
-npm-owner(1) -- Manage package owners
-=====================================
+---
+title: npm-owner
+description: Manage package owners
+---
 
-## SYNOPSIS
+# npm-owner
+## Manage package owners
 
-    npm owner add <user> [<@scope>/]<pkg>
-    npm owner rm <user> [<@scope>/]<pkg>
-    npm owner ls [<@scope>/]<pkg>
+### Synopsis
 
-    aliases: author
+```bash
+npm owner add <user> [<@scope>/]<pkg>
+npm owner rm <user> [<@scope>/]<pkg>
+npm owner ls [<@scope>/]<pkg>
 
-## DESCRIPTION
+aliases: author
+```
+
+### Description
 
 Manage ownership of published packages.
 
@@ -31,9 +38,9 @@ If you have two-factor authentication enabled with `auth-and-writes` then
 you'll need to include an otp on the command line when changing ownership
 with `--otp`.
 
-## SEE ALSO
+### See Also
 
-* npm-publish(1)
-* npm-registry(7)
-* npm-adduser(1)
-* npm-disputes(7)
+* [npm-publish](npm-publish)
+* [npm-registry](npm-registry)
+* [npm-adduser](npm-adduser)
+* [npm-disputes](npm-disputes)

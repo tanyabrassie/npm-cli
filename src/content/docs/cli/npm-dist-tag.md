@@ -1,15 +1,23 @@
-npm-dist-tag(1) -- Modify package distribution tags
-===================================================
+---
+title: npm-dist-tag
+description: Modify package distribution tags
+---
 
-## SYNOPSIS
+# npm-dist-tag
 
-    npm dist-tag add <pkg>@<version> [<tag>]
-    npm dist-tag rm <pkg> <tag>
-    npm dist-tag ls [<pkg>]
+## Modify package distribution tags
 
-    aliases: dist-tags
 
-## DESCRIPTION
+### Synopsis
+```bash
+npm dist-tag add <pkg>@<version> [<tag>]
+npm dist-tag rm <pkg> <tag>
+npm dist-tag ls [<pkg>]
+
+aliases: dist-tags
+```
+
+### Description
 
 Add, remove, and enumerate distribution tags on a package:
 
@@ -24,18 +32,20 @@ Add, remove, and enumerate distribution tags on a package:
 
 * ls:
   Show all of the dist-tags for a package, defaulting to the package in
-  the current prefix.
-
-  This is the default action if none is specified.
+  the current prefix. This is the default action if none is specified.
 
 A tag can be used when installing packages as a reference to a version instead
 of using a specific version number:
 
-    npm install <name>@<tag>
+```bash
+npm install <name>@<tag>
+```
 
 When installing dependencies, a preferred tagged version may be specified:
 
-    npm install --tag <tag>
+```bash
+npm install --tag <tag>
+```
 
 This also applies to `npm dedupe`.
 
@@ -45,7 +55,7 @@ Publishing a package sets the `latest` tag to the published version unless the
 By default, `npm install <pkg>` (without any `@<version>` or `@<tag>`
 specifier) installs the `latest` tag.
 
-## PURPOSE
+### Purpose
 
 Tags can be used to provide an alias instead of version numbers.
 
@@ -64,7 +74,7 @@ The `next` tag is used by some projects to identify the upcoming version.
 By default, other than `latest`, no tag has any special significance to npm
 itself.
 
-## CAVEATS
+### Caveats
 
 This command used to be known as `npm tag`, which only created new tags, and so
 had a different syntax.
@@ -79,12 +89,12 @@ example, `v1.4` cannot be used as a tag, because it is interpreted by semver as
 The simplest way to avoid semver problems with tags is to use tags that do not
 begin with a number or the letter `v`.
 
-## SEE ALSO
+### See Also
 
-* npm-publish(1)
-* npm-install(1)
-* npm-dedupe(1)
-* npm-registry(7)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-publish](npm-publish)
+* [npm-install](npm-install)
+* [npm-dedupe](npm-dedupe)
+* [npm-registry](npm-registry)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

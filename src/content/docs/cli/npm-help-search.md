@@ -1,11 +1,19 @@
-npm-help-search(1) -- Search npm help documentation
-===================================================
+---
+title: npm-help-search
+description: Search npm help documentation
+---
 
-## SYNOPSIS
+# npm-help-search
 
-    npm help-search <text>
+## Search npm help documentation
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm help-search <text>
+```
+
+### Description
 
 This command will search the npm markdown documentation files for the
 terms provided, and then list the results, sorted by relevance.
@@ -16,9 +24,9 @@ If the argument to `npm help` is not a known help topic, then it will
 call `help-search`.  It is rarely if ever necessary to call this
 command directly.
 
-## CONFIGURATION
+### Configuration
 
-### long
+#### long
 
 * Type: Boolean
 * Default: false
@@ -28,7 +36,7 @@ where the terms were found in the documentation.
 
 If false, then help-search will just list out the help topics found.
 
-## SEE ALSO
+### See Also
 
-* npm(1)
-* npm-help(1)
+* [npm](npm)
+* [npm-help](npm-help)

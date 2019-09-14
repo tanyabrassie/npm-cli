@@ -1,21 +1,27 @@
+---
+title: npm-access
+description: Set access level on published packages
+---
+
 # npm-access 
+
 ## Set access level on published packages
 
 ### Synopsis
 
 ```bash
-    npm access public [<package>]
-    npm access restricted [<package>]
+npm access public [<package>]
+npm access restricted [<package>]
 
-    npm access grant <read-only|read-write> <scope:team> [<package>]
-    npm access revoke <scope:team> [<package>]
+npm access grant <read-only|read-write> <scope:team> [<package>]
+npm access revoke <scope:team> [<package>]
 
-    npm access 2fa-required [<package>]
-    npm access 2fa-not-required [<package>]
+npm access 2fa-required [<package>]
+npm access 2fa-not-required [<package>]
 
-    npm access ls-packages [<user>|<scope>|<scope:team>]
-    npm access ls-collaborators [<package> [<user>]]
-    npm access edit [<package>]
+npm access ls-packages [<user>|<scope>|<scope:team>]
+npm access ls-collaborators [<package> [<user>]]
+npm access edit [<package>]
 ```
 
 ### Description
@@ -80,7 +86,7 @@ Management of teams and team memberships is done with the `npm team` command.
 ### See Also
 
 * [`libnpmaccess`](https://npm.im/libnpmaccess)
-* npm-team(1)
-* npm-publish(1)
-* npm-config(7)
-* npm-registry(7)
+* [npm-team](/docs/cli/npm-team)
+* [npm-publish](npm-publish)
+* [npm-config](npm-config)
+* [npm-registry](npm-registry)

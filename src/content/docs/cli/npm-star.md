@@ -1,12 +1,20 @@
-npm-star(1) -- Mark your favorite packages
-==========================================
+---
+title: npm-star
+description: Mark your favorite packages
+---
 
-## SYNOPSIS
+# npm-star
 
-    npm star [<pkg>...]
-    npm unstar [<pkg>...]
+## Mark your favorite packages
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm star [<pkg>...]
+npm unstar [<pkg>...]
+```
+
+### Description
 
 "Starring" a package means that you have some interest in it.  It's
 a vaguely positive way to show that you care.
@@ -15,8 +23,8 @@ a vaguely positive way to show that you care.
 
 It's a boolean thing.  Starring repeatedly has no additional effect.
 
-## SEE ALSO
+### See Also
 
-* npm-view(1)
-* npm-whoami(1)
-* npm-adduser(1)
+* [npm-view](npm-view)
+* [npm-whoami](npm-whoami)
+* [npm-adduser](npm-adduser)

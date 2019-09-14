@@ -1,17 +1,24 @@
-npm-whoami(1) -- Display npm username
-=====================================
+---
+title: npm-whoami
+description: Display npm username
+---
 
-## SYNOPSIS
+# npm-whoami
+## Display npm username
 
-    npm whoami [--registry <registry>]
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm whoami [--registry <registry>]
+```
+
+### Description
 
 Print the `username` config to standard output.
 
-## SEE ALSO
+### See Also
 
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-adduser(1)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-adduser](npm-adduser)

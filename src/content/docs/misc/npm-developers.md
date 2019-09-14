@@ -1,7 +1,13 @@
-npm-developers(7) -- Developer Guide
-====================================
+---
+title: npm-developers
+description: Developer Guide
+---
 
-## DESCRIPTION
+# npm-developers
+
+## Developer Guide
+
+### Description
 
 So, you've decided to use npm to develop (and maybe publish/deploy)
 your project.
@@ -11,13 +17,13 @@ Fantastic!
 There are a few things that you need to do above the simple steps
 that your users will do to install your program.
 
-## About These Documents
+### About These Documents
 
 These are man pages.  If you install npm, you should be able to
 then do `man npm-thing` to get the documentation on a particular
 topic, or `npm help thing` to see the same information.
 
-## What is a `package`
+### What is a package
 
 A package is:
 
@@ -36,15 +42,17 @@ after packing it up into a tarball (b).
 
 Git urls can be of the form:
 
-    git://github.com/user/project.git#commit-ish
-    git+ssh://user@hostname:project.git#commit-ish
-    git+http://user@hostname/project/blah.git#commit-ish
-    git+https://user@hostname/project/blah.git#commit-ish
+```bash
+git://github.com/user/project.git#commit-ish
+git+ssh://user@hostname:project.git#commit-ish
+git+http://user@hostname/project/blah.git#commit-ish
+git+https://user@hostname/project/blah.git#commit-ish
+```
 
 The `commit-ish` can be any tag, sha, or branch which can be supplied as
 an argument to `git checkout`.  The default is `master`.
 
-## The package.json File
+### The package.json File
 
 You need to have a `package.json` file in the root of your project to do
 much of anything with npm.  That is basically the whole interface.
@@ -94,7 +102,7 @@ You can use `npm init` in the root of your package in order to get you
 started with a pretty basic package.json file.  See `npm-init(1)` for
 more info.
 
-## Keeping files *out* of your package
+### Keeping files *out* of your package
 
 Use a `.npmignore` file to keep stuff out of your package.  If there's
 no `.npmignore` file, but there *is* a `.gitignore` file, then npm will
@@ -146,14 +154,14 @@ property of `package.json`, which is an array of file or directory names
 that should be included in your package. Sometimes a whitelist is easier
 to manage than a blacklist.
 
-### Testing whether your `.npmignore` or `files` config works
+#### Testing whether your `.npmignore` or `files` config works
 
 If you want to double check that your package will include only the files
 you intend it to when published, you can run the `npm pack` command locally
 which will generate a tarball in the working directory, the same way it
 does for publishing.
 
-## Link Packages
+### Link Packages
 
 `npm link` is designed to install a development package and see the
 changes in real time without having to keep re-installing it.  (You do
@@ -162,7 +170,7 @@ of course.)
 
 More info at `npm-link(1)`.
 
-## Before Publishing: Make Sure Your Package Installs and Works
+### Before Publishing: Make Sure Your Package Installs and Works
 
 **This is important.**
 
@@ -173,40 +181,50 @@ So don't do that.
 
 In the root of your package, do this:
 
-    npm install . -g
+```bash
+npm install . -g
+```
 
 That'll show you that it's working.  If you'd rather just create a symlink
 package that points to your working directory, then do this:
 
-    npm link
+```bash
+npm link
+```
 
 Use `npm ls -g` to see if it's there.
 
 To test a local install, go into some other folder, and then do:
 
-    cd ../some-other-folder
-    npm install ../my-package
+```bash
+cd ../some-other-folder
+npm install ../my-package
+```
 
 to install it locally into the node_modules folder in that other place.
 
 Then go into the node-repl, and try using require("my-thing") to
 bring in your module's main module.
 
-## Create a User Account
+### Create a User Account
 
 Create a user with the adduser command.  It works like this:
 
-    npm adduser
+```bash
+npm adduser
+```
 
 and then follow the prompts.
 
 This is documented better in npm-adduser(1).
 
-## Publish your package
+### Publish your package
 
 This part's easy.  In the root of your folder, do this:
 
-    npm publish
+```bash
+npm publish
+```
 
 You can give publish a url to a tarball, or a filename of a tarball,
 or a path to a folder.
@@ -216,18 +234,18 @@ by default.  So, if you have secret stuff in there, use a
 `.npmignore` file to list out the globs to ignore, or publish
 from a fresh checkout.
 
-## Brag about it
+### Brag about it
 
 Send emails, write blogs, blab in IRC.
 
 Tell the world how easy it is to install your program!
 
-## SEE ALSO
+### See also
 
-* npm(1)
-* npm-init(1)
-* package.json(5)
-* npm-scripts(7)
-* npm-publish(1)
-* npm-adduser(1)
-* npm-registry(7)
+* [npm](npm)
+* [npm-init](npm-init)
+* [package.json](package.json)
+* [npm-scripts](npm-scripts)
+* [npm-publish](npm-publish)
+* [npm-adduser](npm-adduser)
+* [npm-registry](npm-registry)

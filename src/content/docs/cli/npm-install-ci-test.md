@@ -1,16 +1,25 @@
-# npm install-ci-test(1) -- Install a project with a clean slate and run tests
+---
+title: npm-install-ci-test
+description: Install a project with a clean slate and run tests
+---
 
-## SYNOPSIS
+# npm install-ci-test
 
-    npm install-ci-test
+## Install a project with a clean slate and run tests
 
-    alias: npm cit
+### Synopsis
 
-## DESCRIPTION
+```bash
+npm install-ci-test
+
+alias: npm cit
+```
+
+### Description
 
 This command runs an `npm ci` followed immediately by an `npm test`.
 
-## SEE ALSO
+### See Also
 
-- npm-ci(1)
-- npm-test(1)
+* [npm-ci](npm-ci)
+* [npm-test](npm-test)

@@ -1,51 +1,59 @@
-npm-hook(1) -- Manage registry hooks
-===================================
+---
+title: npm-hook
+description: Manage registry hooks
+---
 
-## SYNOPSIS
+# npm-hook
 
-    npm hook ls [pkg]
-    npm hook add <entity> <url> <secret>
-    npm hook update <id> <url> [secret]
-    npm hook rm <id>
+## Manage registry hooks
 
-## EXAMPLE
+### Synopsis
+
+```bash
+npm hook ls [pkg]
+npm hook add <entity> <url> <secret>
+npm hook update <id> <url> [secret]
+npm hook rm <id>
+```
+
+### Example
 
 Add a hook to watch a package for changes:
-```
+```bash
 $ npm hook add lodash https://example.com/ my-shared-secret
 ```
 
 Add a hook to watch packages belonging to the user `substack`:
-```
+```bash
 $ npm hook add ~substack https://example.com/ my-shared-secret
 ```
 
 Add a hook to watch packages in the scope `@npm`
-```
+```bash
 $ npm hook add @npm https://example.com/ my-shared-secret
 ```
 
 List all your active hooks:
-```
+```bash
 $ npm hook ls
 ```
 
 List your active hooks for the `lodash` package:
-```
+```bash
 $ npm hook ls lodash
 ```
 
 Update an existing hook's url:
-```
+```bash
 $ npm hook update id-deadbeef https://my-new-website.here/
 ```
 
 Remove a hook:
-```
+```bash
 $ npm hook rm id-deadbeef
 ```
 
-## DESCRIPTION
+### Description
 
 Allows you to manage [npm
 hooks](https://blog.npmjs.org/post/145260155635/introducing-hooks-get-notifications-of-npm),
@@ -67,6 +75,6 @@ that particular hook.
 The shared secret will be sent along to the URL endpoint so you can verify the
 request came from your own configured hook.
 
-## SEE ALSO
+### See Also
 
 * ["Introducing Hooks" blog post](https://blog.npmjs.org/post/145260155635/introducing-hooks-get-notifications-of-npm)

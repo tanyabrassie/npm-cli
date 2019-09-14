@@ -1,11 +1,19 @@
-npm-unpublish(1) -- Remove a package from the registry
-======================================================
+---
+title: npm-unpublish
+description: Remove a package from the registry
+---
 
-## SYNOPSIS
+# npm-unpublish
 
-    npm unpublish [<@scope>/]<pkg>[@<version>]
+## Remove a package from the registry
 
-## WARNING
+### Synopsis
+
+```bash
+npm unpublish [<@scope>/]<pkg>[@<version>]
+```
+
+### Warning
 
 **It is generally considered bad behavior to remove versions of a library
 that others are depending on!**
@@ -15,7 +23,7 @@ instead, if your intent is to encourage users to upgrade.
 
 There is plenty of room on the registry.
 
-## DESCRIPTION
+### Description
 
 This removes a package version from the registry, deleting its
 entry and removing the tarball.
@@ -36,10 +44,10 @@ contact support@npmjs.com.
 
 The scope is optional and follows the usual rules for `npm-scope(7)`.
 
-## SEE ALSO
+### See Also
 
-* npm-deprecate(1)
-* npm-publish(1)
-* npm-registry(7)
-* npm-adduser(1)
-* npm-owner(1)
+* [npm-deprecate](npm-deprecate)
+* [npm-publish](npm-publish)
+* [npm-registry](npm-registry)
+* [npm-adduser](npm-adduser)
+* [npm-owner](npm-owner)

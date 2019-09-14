@@ -1,11 +1,19 @@
-npm-explore(1) -- Browse an installed package
-=============================================
+---
+title: npm-explore
+description: Browse an installed package
+---
 
-## SYNOPSIS
+# title: npm-explore
 
-    npm explore <pkg> [ -- <command>]
+## description: Browse an installed package
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm explore <pkg> [ -- <command>]
+```
+
+### Description
 
 Spawn a subshell in the directory of the installed package specified.
 
@@ -15,14 +23,16 @@ immediately terminates.
 This is particularly handy in the case of git submodules in the
 `node_modules` folder:
 
-    npm explore some-dependency -- git pull origin master
+```bash
+npm explore some-dependency -- git pull origin master
+```
 
 Note that the package is *not* automatically rebuilt afterwards, so be
 sure to use `npm rebuild <pkg>` if you make any changes.
 
-## CONFIGURATION
+### Configuration
 
-### shell
+#### shell
 
 * Default: SHELL environment variable, or "bash" on Posix, or "cmd" on
   Windows
@@ -30,10 +40,10 @@ sure to use `npm rebuild <pkg>` if you make any changes.
 
 The shell to run for the `npm explore` command.
 
-## SEE ALSO
+### See Also
 
-* npm-folders(5)
-* npm-edit(1)
-* npm-rebuild(1)
-* npm-build(1)
-* npm-install(1)
+* [npm-folders](npm-folders)
+* [npm-edit](npm-edit)
+* [npm-rebuild](npm-rebuild)
+* [npm-build](npm-build)
+* [npm-install](npm-install)

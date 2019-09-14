@@ -1,11 +1,19 @@
-npm-pack(1) -- Create a tarball from a package
-==============================================
+---
+title: npm-pack
+description: Create a tarball from a package
+---
 
-## SYNOPSIS
+# npm-pack
 
-    npm pack [[<@scope>/]<pkg>...] [--dry-run]
+## Create a tarball from a package
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm pack [[<@scope>/]<pkg>...] [--dry-run]
+```
+
+### Description
 
 For anything that's installable (that is, a package folder, tarball,
 tarball url, name@tag, name@version, name, or scoped name), this
@@ -21,10 +29,10 @@ If no arguments are supplied, then npm packs the current package folder.
 The `--dry-run` argument will do everything that pack usually does without
 actually packing anything. Reports on what would have gone into the tarball.
 
-## SEE ALSO
+### See Also
 
-* npm-cache(1)
-* npm-publish(1)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-cache](npm-cache)
+* [npm-publish](npm-publish)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

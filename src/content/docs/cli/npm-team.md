@@ -1,19 +1,27 @@
-npm-team(1) -- Manage organization teams and team memberships
-=============================================================
+---
+title: npm-team
+description: Manage organization teams and team memberships
+---
 
-## SYNOPSIS
+# npm-team
 
-    npm team create <scope:team>
-    npm team destroy <scope:team>
+## Manage organization teams and team memberships
 
-    npm team add <scope:team> <user>
-    npm team rm <scope:team> <user>
+### Synopsis
 
-    npm team ls <scope>|<scope:team>
+```bash
+npm team create <scope:team>
+npm team destroy <scope:team>
 
-    npm team edit <scope:team>
+npm team add <scope:team> <user>
+npm team rm <scope:team> <user>
 
-## DESCRIPTION
+npm team ls <scope>|<scope:team>
+
+npm team edit <scope:team>
+```
+
+### Description
 
 Used to manage teams in organizations, and change team memberships. Does not
 handle permissions for packages.
@@ -37,7 +45,7 @@ when operating on them, separated by a colon (`:`). That is, if you have a
 * edit:
   Edit a current team.
 
-## DETAILS
+### Details
 
 `npm team` always operates directly on the current registry, configurable from
 the command line using `--registry=<registry url>`.
@@ -52,7 +60,7 @@ is done through the website, not the npm CLI.
 To use teams to manage permissions on packages belonging to your organization,
 use the `npm access` command to grant or revoke the appropriate permissions.
 
-## SEE ALSO
+### See Also
 
-* npm-access(1)
-* npm-registry(7)
+* [npm-access](npm-access)
+* [npm-registry](npm-registry)

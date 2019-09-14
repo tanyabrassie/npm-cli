@@ -1,11 +1,19 @@
-npm-help(1) -- Get help on npm
-==============================
+---
+title: npm-help
+description: Get help on npm
+---
 
-## SYNOPSIS
+# npm-help
 
-    npm help <term> [<terms..>]
+## Get help on npm
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm help <term> [<terms..>]
+```
+
+### Description
 
 If supplied a topic, then show the appropriate documentation page.
 
@@ -14,9 +22,9 @@ the `help-search` command to find a match.  Note that, if `help-search`
 finds a single subject, then it will run `help` on that topic, so unique
 matches are equivalent to specifying a topic name.
 
-## CONFIGURATION
+### Configuration
 
-### viewer
+#### viewer
 
 * Default: "man" on Posix, "browser" on Windows
 * Type: path
@@ -25,14 +33,14 @@ The program to use to view help content.
 
 Set to `"browser"` to view html help content in the default web browser.
 
-## SEE ALSO
+### See Also
 
-* npm(1)
+* [npm](npm)
 * README
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* package.json(5)
-* npm-help-search(1)
-* npm-index(7)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [package.json](package.json)
+* [npm-help-search](npm-help-search)
+* [npm-index](npm-index)

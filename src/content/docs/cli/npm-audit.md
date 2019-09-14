@@ -1,73 +1,81 @@
-npm-audit(1) -- Run a security audit
-====================================
+---
+title: npm-audit
+description: Run a security audit
+---
 
-## SYNOPSIS
+# npm-audit
 
-    npm audit [--json|--parseable|--audit-level=(low|moderate|high|critical)]
-    npm audit fix [--force|--package-lock-only|--dry-run]
-    
-    common options: [--production] [--only=(dev|prod)]
+## Run a security audit
 
-## EXAMPLES
+### Synposis
+
+```bash
+npm audit [--json|--parseable|--audit-level=(low|moderate|high|critical)]
+npm audit fix [--force|--package-lock-only|--dry-run]
+
+common options: [--production] [--only=(dev|prod)]
+```
+
+### Examples
 
 Scan your project for vulnerabilities and automatically install any compatible
 updates to vulnerable dependencies:
-```
+```bash
 $ npm audit fix
 ```
 
 Run `audit fix` without modifying `node_modules`, but still updating the
 pkglock:
-```
+```bash
 $ npm audit fix --package-lock-only
 ```
 
 Skip updating `devDependencies`:
-```
+```bash
 $ npm audit fix --only=prod
 ```
 
 Have `audit fix` install semver-major updates to toplevel dependencies, not just
 semver-compatible ones:
-```
+```bash
 $ npm audit fix --force
 ```
 
 Do a dry run to get an idea of what `audit fix` will do, and _also_ output
 install information in JSON format:
-```
+```bash
 $ npm audit fix --dry-run --json
 ```
 
 Scan your project for vulnerabilities and just show the details, without fixing
 anything:
-```
+```bash
 $ npm audit
 ```
 
 Get the detailed audit report in JSON format:
-```
+```bash
 $ npm audit --json
 ```
 
 Get the detailed audit report in plain text result, separated by tab characters, allowing for
 future reuse in scripting or command line post processing, like for example, selecting
 some of the columns printed:
-```
+```bash
 $ npm audit --parseable
 ```
 
 To parse columns, you can use for example `awk`, and just print some of them:
-```
+```bash
 $ npm audit --parseable | awk -F $'\t' '{print $1,$4}'
 ```
 
 Fail an audit only if the results include a vulnerability with a level of moderate or higher:
-```
+```bash
 $ npm audit --audit-level=moderate
 ```
 
-## DESCRIPTION
+### Description
 
 The audit command submits a description of the dependencies configured in
 your project to your default registry and asks for a report of known
@@ -88,7 +96,7 @@ to specify the minimum vulnerability level that will cause the command to fail. 
 option does not filter the report output, it simply changes the command's failure
 threshold.
 
-## CONTENT SUBMITTED
+### Content Submitted
 
 * npm_version
 * node_version
@@ -96,7 +104,7 @@ threshold.
 * node_env
 * A scrubbed version of your package-lock.json or npm-shrinkwrap.json
 
-### SCRUBBING
+#### Scrubbing
 
 In order to ensure that potentially sensitive information is not included in
 the audit data bundle, some dependencies may have their names (and sometimes
@@ -113,15 +121,15 @@ The non-reversible identifiers are a sha256 of a session-specific UUID and the
 value being replaced, ensuring a consistent value within the payload that is
 different between runs.
 
-## EXIT CODE
+### Exit Code
 
 The `npm audit` command will exit with a 0 exit code if no vulnerabilities were found.
 
 If vulnerabilities were found the exit code will depend on the `audit-level`
 configuration setting.
 
-## SEE ALSO
+### See Also
 
-* npm-install(1)
-* package-locks(5)
-* config(7)
+* [npm-install](npm-install)
+* [package-locks](package-locks)
+* [config](config)

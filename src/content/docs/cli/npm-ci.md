@@ -1,15 +1,22 @@
-npm-ci(1) -- Install a project with a clean slate
-===================================
+---
+title: npm-ci
+description: Install a project with a clean slate
+---
 
-## SYNOPSIS
+# npm-ci
 
-    npm ci
+## Install a project with a clean slate
 
-## EXAMPLE
+### Synopsis
+```bash
+npm ci
+```
+
+### Example
 
 Make sure you have a package-lock and an up-to-date install:
 
-```
+```bash
 $ cd ./my/npm/project
 $ npm install
 added 154 packages in 10s
@@ -18,14 +25,14 @@ $ ls | grep package-lock
 
 Run `npm ci` in that project
 
-```
+```bash
 $ npm ci
 added 154 packages in 5s
 ```
 
 Configure Travis to build using `npm ci` instead of `npm install`:
 
-```
+```bash
 # .travis.yml
 install:
 - npm ci
@@ -35,7 +42,7 @@ cache:
   - "$HOME/.npm"
 ```
 
-## DESCRIPTION
+### Description
 
 This command is similar to `npm-install(1)`, except it's meant to be used in
 automated environments such as test platforms, continuous integration, and
@@ -53,7 +60,7 @@ In short, the main differences between using `npm install` and `npm ci` are:
 * If a `node_modules` is already present, it will be automatically removed before `npm ci` begins its install.
 * It will never write to `package.json` or any of the package-locks: installs are essentially frozen.
 
-## SEE ALSO
+### See Also
 
-* npm-install(1)
-* npm-package-locks(5)
+* [npm-install](npm-install)
+* [npm-package-locks](npm-package-locks)

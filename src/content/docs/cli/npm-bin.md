@@ -1,19 +1,26 @@
-npm-bin(1) -- Display npm bin folder
-====================================
+---
+title: npm-bin
+description: Display npm bin folder
+---
 
-## SYNOPSIS
+# npm-bin
 
-    npm bin [-g|--global]
+## Display npm bin folder
 
-## DESCRIPTION
+### Synopsis
+```bash
+npm bin [-g|--global]
+```
+
+### Description
 
 Print the folder where npm will install executables.
 
-## SEE ALSO
+### See Also
 
-* npm-prefix(1)
-* npm-root(1)
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-prefix](npm-prefix)
+* [npm-root](npm-root)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

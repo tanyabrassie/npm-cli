@@ -1,15 +1,21 @@
-npm-publish(1) -- Publish a package
-===================================
+---
+title: npm-publish
+description: Publish a package
+---
 
+# npm-publish
 
-## SYNOPSIS
+## Publish a package
 
-    npm publish [<tarball>|<folder>] [--tag <tag>] [--access <public|restricted>] [--otp otpcode] [--dry-run]
+### Synopsis
+```bash
+npm publish [<tarball>|<folder>] [--tag <tag>] [--access <public|restricted>] [--otp otpcode] [--dry-run]
 
-    Publishes '.' if no argument supplied
-    Sets tag 'latest' if no --tag specified
+Publishes '.' if no argument supplied
+Sets tag 'latest' if no --tag specified
+```
 
-## DESCRIPTION
+### Description
 
 Publishes a package to the registry so that it can be installed by name. All
 files in the package directory are included if no local `.gitignore` or
@@ -19,7 +25,7 @@ files in the package directory are included if no local `.gitignore` or
 package, as well as details on how the package is built.
 
 By default npm will publish to the public registry. This can be overridden by
-specifying a different default registry or using a `npm-scope(7)` in the name
+specifying a different default registry or using a [`npm-scope`](npm-scope) in the name
 (see `package.json(5)`).
 
 * `<folder>`:
@@ -61,16 +67,16 @@ As of `npm@5`, both a sha1sum and an integrity field with a sha512sum of the
 tarball will be submitted to the registry during publication. Subsequent
 installs will use the strongest supported algorithm to verify downloads.
 
-Similar to `--dry-run` see `npm-pack(1)`, which figures out the files to be
+Similar to `--dry-run` see [`npm-pack`](npm-pack), which figures out the files to be
 included and packs them into a tarball to be uploaded to the registry.
 
-## SEE ALSO
+### See Also
 
-* npm-registry(7)
-* npm-scope(7)
-* npm-adduser(1)
-* npm-owner(1)
-* npm-deprecate(1)
-* npm-dist-tag(1)
-* npm-pack(1)
-* npm-profile(1)
+* [npm-registry](npm-registry)
+* [npm-scope](npm-scope)
+* [npm-adduser](npm-adduser)
+* [npm-owner](npm-owner)
+* [npm-deprecate](npm-deprecate)
+* [npm-dist-tag](npm-dist-tag)
+* [npm-pack](npm-pack)
+* [npm-profile](npm-profile)

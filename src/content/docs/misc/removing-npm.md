@@ -1,17 +1,27 @@
-npm-removal(1) -- Cleaning the Slate
-====================================
+---
+title: npm-removal
+description: Cleaning the Slate
+---
 
-## SYNOPSIS
+# npm-removal
+
+## Cleaning the Slate
+
+### Synopsis
 
 So sad to see you go.
 
-    sudo npm uninstall npm -g
+```bash
+sudo npm uninstall npm -g
+```
 
 Or, if that fails, get the npm source code, and do:
 
-    sudo make uninstall
+```bash
+sudo make uninstall
+```
 
-## More Severe Uninstalling
+### More Severe Uninstalling
 
 Usually, the above instructions are sufficient.  That will remove
 npm, but leave behind anything you've installed.
@@ -21,7 +31,7 @@ continue reading.
 
 Note that this is only necessary for globally-installed packages.  Local
 installs are completely contained within a project's `node_modules`
-folder.  Delete that folder, and everything is gone (unless a package's
+folder.  Delete that folder, and everything is gone less a package's
 install script is particularly ill-behaved).
 
 This assumes that you installed node and npm in the default place.  If
@@ -31,24 +41,30 @@ different prefix setting, then adjust the paths accordingly, replacing
 
 To remove everything npm-related manually:
 
-    rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/npm*
+```bash
+rm -rf /usr/local/{lib/node{,/.npm,_modules},bin,share/man}/npm*
+```
 
 If you installed things *with* npm, then your best bet is to uninstall
 them with npm first, and then install them again once you have a
 proper install.  This can help find any symlinks that are lying
 around:
 
-    ls -laF /usr/local/{lib/node{,/.npm},bin,share/man} | grep npm
+```bash
+ls -laF /usr/local/{lib/node{,/.npm},bin,share/man} | grep npm
+```
 
 Prior to version 0.3, npm used shim files for executables and node
 modules.  To track those down, you can do the following:
 
-    find /usr/local/{lib/node,bin} -exec grep -l npm \{\} \; ;
+```bash
+find /usr/local/{lib/node,bin} -exec grep -l npm \{\} \; ;
+```
 
 (This is also in the README file.)
 
-## SEE ALSO
+### See also
 
 * README
-* npm-uninstall(1)
-* npm-prune(1)
+* [npm-uninstall](npm-uninstall)
+* [npm-prune](npm-prune)

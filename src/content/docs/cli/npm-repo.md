@@ -1,27 +1,35 @@
-npm-repo(1) -- Open package repository page in the browser
-========================================================
+---
+title: npm-repo
+description: Open package repository page in the browser
+---
 
-## SYNOPSIS
+# npm-repod
 
-    npm repo [<pkg>]
+## Open package repository page in the browser
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm repo [<pkg>]
+```
+
+### Description
 
 This command tries to guess at the likely location of a package's
 repository URL, and then tries to open it using the `--browser`
 config param. If no package name is provided, it will search for
 a `package.json` in the current folder and use the `name` property.
 
-## CONFIGURATION
+### Configuration
 
-### browser
+#### browser
 
 * Default: OS X: `"open"`, Windows: `"start"`, Others: `"xdg-open"`
 * Type: String
 
 The browser that is called by the `npm repo` command to open websites.
 
-## SEE ALSO
+### See Also
 
-* npm-docs(1)
-* npm-config(1)
+* [npm-docs](npm-docs)
+* [npm-config](npm-config)

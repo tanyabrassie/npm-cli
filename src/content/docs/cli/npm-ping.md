@@ -1,24 +1,33 @@
-npm-ping(1) -- Ping npm registry
-================================
+---
+title: npm-ping
+description: Ping npm registry
+---
 
-## SYNOPSIS
+# npm-ping
 
-    npm ping [--registry <registry>]
+## Ping npm registry
 
-## DESCRIPTION
+### Synopsis
+
+```bash
+npm ping [--registry <registry>]
+```
+
+### Description
 
 Ping the configured or given npm registry and verify authentication.
 If it works it will output something like:
-```
+
+```bash
 Ping success: {*Details about registry*}
 ```
 otherwise you will get:
-```
+```bash
 Ping error: {*Detail about error}
 ```
 
-## SEE ALSO
+### See Also
 
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

@@ -1,15 +1,22 @@
-npm(1) -- javascript package manager
-====================================
+---
+title: npm
+description: javascript package manager
+---
 
-## SYNOPSIS
+# npm
+## javascript package manager
 
-    npm <command> [args]
+### Synopsis
 
-## VERSION
+```bash
+npm <command> [args]
+```
+
+### Version
 
 @VERSION@
 
-## DESCRIPTION
+### Description
 
 npm is the package manager for the Node JavaScript platform.  It puts
 modules in place so that node can find them, and manages dependency
@@ -21,7 +28,7 @@ programs.
 
 Run `npm help` to get a list of available commands.
 
-## IMPORTANT
+### Important
 
 npm is configured to use npm, Inc.'s public registry at
 https://registry.npmjs.org by default. Use of the npm public registry is
@@ -31,7 +38,7 @@ You can configure npm to use any compatible registry you like, and even run
 your own registry. Use of someone else's registry may be governed by their
 terms of use.
 
-## INTRODUCTION
+### Introduction
 
 You probably got npm because you want to install stuff.
 
@@ -41,7 +48,7 @@ Use `npm install blerg` to install the latest version of "blerg".  Check out
 Use the `npm search` command to show everything that's available.
 Use `npm ls` to show everything you've installed.
 
-## DEPENDENCIES
+### Dependencies
 
 If a package references to another package with a git URL, npm depends
 on a preinstalled git.
@@ -57,7 +64,7 @@ For more information visit
 [the node-gyp repository](https://github.com/TooTallNate/node-gyp) and
 the [node-gyp Wiki](https://github.com/TooTallNate/node-gyp/wiki).
 
-## DIRECTORIES
+### Directories
 
 See `npm-folders(5)` to learn about where npm puts stuff.
 
@@ -74,7 +81,7 @@ In particular, npm has two modes of operation:
 Local mode is the default.  Use `-g` or `--global` on any command to
 operate in global mode instead.
 
-## DEVELOPER USAGE
+### Developer Usage
 
 If you're using npm to develop and publish your code, check out the
 following help topics:
@@ -95,7 +102,7 @@ following help topics:
 * publish:
   Use the `npm publish` command to upload your code to the registry.
 
-## CONFIGURATION
+#### Configuration
 
 npm is extremely configurable.  It reads its configuration options from
 5 places.
@@ -123,7 +130,7 @@ npm is extremely configurable.  It reads its configuration options from
 
 See `npm-config(7)` for much much more information.
 
-## CONTRIBUTIONS
+### Contributions
 
 Patches welcome!
 
@@ -134,7 +141,7 @@ the contributing guidelines and check the issues list.
 * [Bug tracker](https://npm.community/c/bugs)
 * [Support tracker](https://npm.community/c/support)
 
-## BUGS
+### Bugs
 
 When you find issues, please report them:
 
@@ -146,20 +153,20 @@ for help in the [support forum](https://npm.community/c/support) if you're
 unsure if it's actually a bug or are having trouble coming up with a detailed
 reproduction to report.
 
-## AUTHOR
+### Author
 
 [Isaac Z. Schlueter](http://blog.izs.me/) ::
 [isaacs](https://github.com/isaacs/) ::
 [@izs](https://twitter.com/izs) ::
 <i@izs.me>
 
-## SEE ALSO
+### See Also
 
-* npm-help(1)
+* [npm-help](npm-help)
 * README
-* package.json(5)
-* npm-install(1)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
-* npm-index(7)
+* [package.json](package.json)
+* [npm-install](npm-install)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-index](npm-index)

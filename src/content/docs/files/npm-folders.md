@@ -1,5 +1,10 @@
-npm-folders(5) -- Folder Structures Used by npm
-===============================================
+---
+title: npm-folders
+description: Folder Structures Used by npm
+---
+
+# npm-folders
+## Folder Structures Used by npm
 
 ## DESCRIPTION
 
@@ -7,7 +12,7 @@ npm puts various things on your computer.  That's its job.
 
 This document will tell you what it puts where.
 
-### tl;dr
+#### tl;dr
 
 * Local install (default): puts stuff in `./node_modules` of the current
   package root.
@@ -17,7 +22,7 @@ This document will tell you what it puts where.
 * Install it **globally** if you're going to run it on the command line.
 * If you need both, then install it in both places, or use `npm link`.
 
-### prefix Configuration
+#### prefix Configuration
 
 The `prefix` config defaults to the location where node is installed.
 On most systems, this is `/usr/local`. On Windows, it's `%AppData%\npm`.
@@ -28,7 +33,7 @@ When the `global` flag is set, npm installs things into this prefix.
 When it is not set, it uses the root of the current package, or the
 current working directory if not in a package already.
 
-### Node Modules
+#### Node Modules
 
 Packages are dropped into the `node_modules` folder under the `prefix`.
 When installing locally, this means that you can
@@ -47,7 +52,7 @@ more details.
 
 If you wish to `require()` a package, then install it locally.
 
-### Executables
+#### Executables
 
 When in global mode, executables are linked into `{prefix}/bin` on Unix,
 or directly into `{prefix}` on Windows.
@@ -57,7 +62,7 @@ When in local mode, executables are linked into
 through npm.  (For example, so that a test runner will be in the path
 when you run `npm test`.)
 
-### Man Pages
+#### Man Pages
 
 When in global mode, man pages are linked into `{prefix}/share/man`.
 
@@ -65,14 +70,14 @@ When in local mode, man pages are not installed.
 
 Man pages are not installed on Windows systems.
 
-### Cache
+#### Cache
 
 See `npm-cache(1)`.  Cache files are stored in `~/.npm` on Posix, or
 `%AppData%/npm-cache` on Windows.
 
 This is controlled by the `cache` configuration param.
 
-### Temp Files
+#### Temp Files
 
 Temporary files are stored by default in the folder specified by the
 `tmp` config, which defaults to the TMPDIR, TMP, or TEMP environment
@@ -81,7 +86,7 @@ variables, or `/tmp` on Unix and `c:\windows\temp` on Windows.
 Temp files are given a unique folder under this root for each run of the
 program, and are deleted upon successful exit.
 
-## More Information
+### More Information
 
 When installing locally, npm first tries to find an appropriate
 `prefix` folder.  This is so that `npm install foo@1.2.3` will install
@@ -105,7 +110,7 @@ foo's dependencies are similarly unpacked into
 Any bin files are symlinked to `./node_modules/.bin/`, so that they may
 be found by npm scripts when necessary.
 
-### Global Installation
+#### Global Installation
 
 If the `global` configuration is set to true, then npm will
 install packages "globally".
@@ -113,7 +118,7 @@ install packages "globally".
 For global installation, packages are installed roughly the same way,
 but using the folders described above.
 
-### Cycles, Conflicts, and Folder Parsimony
+#### Cycles, Conflicts, and Folder Parsimony
 
 Cycles are handled using the property of node's module system that it
 walks up the directories looking for `node_modules` folders.  So, at every
@@ -142,32 +147,36 @@ highest level possible, below the localized "target" folder.
 
 Consider this dependency graph:
 
-    foo
-    +-- blerg@1.2.5
-    +-- bar@1.2.3
-    |   +-- blerg@1.x (latest=1.3.7)
-    |   +-- baz@2.x
-    |   |   `-- quux@3.x
-    |   |       `-- bar@1.2.3 (cycle)
-    |   `-- asdf@*
-    `-- baz@1.2.3
-        `-- quux@3.x
-            `-- bar
+```bash
+foo
++-- blerg@1.2.5
++-- bar@1.2.3
+|   +-- blerg@1.x (latest=1.3.7)
+|   +-- baz@2.x
+|   |   `-- quux@3.x
+|   |       `-- bar@1.2.3 (cycle)
+|   `-- asdf@*
+`-- baz@1.2.3
+    `-- quux@3.x
+        `-- bar
+```
 
 In this case, we might expect a folder structure like this:
 
-    foo
-    +-- node_modules
-        +-- blerg (1.2.5) <---[A]
-        +-- bar (1.2.3) <---[B]
-        |   `-- node_modules
-        |       +-- baz (2.0.2) <---[C]
-        |       |   `-- node_modules
-        |       |       `-- quux (3.2.0)
-        |       `-- asdf (2.3.4)
-        `-- baz (1.2.3) <---[D]
-            `-- node_modules
-                `-- quux (3.2.0) <---[E]
+```bash
+foo
++-- node_modules
+    +-- blerg (1.2.5) <---[A]
+    +-- bar (1.2.3) <---[B]
+    |   `-- node_modules
+    |       +-- baz (2.0.2) <---[C]
+    |       |   `-- node_modules
+    |       |       `-- quux (3.2.0)
+    |       `-- asdf (2.3.4)
+    `-- baz (1.2.3) <---[D]
+        `-- node_modules
+            `-- quux (3.2.0) <---[E]
+```
 
 Since foo depends directly on `bar@1.2.3` and `baz@1.2.3`, those are
 installed in foo's `node_modules` folder.
@@ -191,7 +200,7 @@ dependency on bar is satisfied by the parent folder copy installed at [B].
 
 For a graphical breakdown of what is installed where, use `npm ls`.
 
-### Publishing
+#### Publishing
 
 Upon publishing, npm will look in the `node_modules` folder.  If any of
 the items there are not in the `bundledDependencies` array, then they will
@@ -201,13 +210,13 @@ This allows a package maintainer to install all of their dependencies
 (and dev dependencies) locally, but only re-publish those items that
 cannot be found elsewhere.  See `package.json(5)` for more information.
 
-## SEE ALSO
+### See also
 
-* package.json(5)
-* npm-install(1)
-* npm-pack(1)
-* npm-cache(1)
-* npm-config(1)
-* npmrc(5)
-* npm-config(7)
-* npm-publish(1)
+* [package.json](package.json)
+* [npm-install](npm-install)
+* [npm-pack](npm-pack)
+* [npm-cache](npm-cache)
+* [npm-config](npm-config)
+* [npmrc](npmrc)
+* [npm-config](npm-config)
+* [npm-publish](npm-publish)

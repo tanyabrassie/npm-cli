@@ -1,20 +1,28 @@
-npm-token(1) -- Manage your authentication tokens
-=================================================
+---
+title: npm-token
+description: Manage your authentication tokens
+---
 
-## SYNOPSIS
+# npm-token
 
-    npm token list [--json|--parseable]
-    npm token create [--read-only] [--cidr=1.1.1.1/24,2.2.2.2/16]
-    npm token revoke <id|token>
+## Manage your authentication tokens
 
-## DESCRIPTION
+### Synopsis
+```bash
+  npm token list [--json|--parseable]
+  npm token create [--read-only] [--cidr=1.1.1.1/24,2.2.2.2/16]
+  npm token revoke <id|token>
+  ```
+
+### Description
 
 This lets you list, create and revoke authentication tokens.
 
 * `npm token list`:
   Shows a table of all active authentication tokens. You can request this as
   JSON with `--json` or tab-separated values with `--parseable`.
-```
+
+```bash
 +--------+---------+------------+----------+----------------+
 | id     | token   | created    | read-only | CIDR whitelist |
 +--------+---------+------------+----------+----------------+
@@ -40,7 +48,7 @@ This lets you list, create and revoke authentication tokens.
   limit use of this token to. This will prompt you for your password, and, if you have
   two-factor authentication enabled, an otp.
 
-```
+```bash
 +----------------+--------------------------------------+
 | token          | a73c9572-f1b9-8983-983d-ba3ac3cc913d |
 +----------------+--------------------------------------+

@@ -1,19 +1,26 @@
-npm-root(1) -- Display npm root
-===============================
+---
+title: npm-root
+description: Display npm root
+---
 
-## SYNOPSIS
+# npm-root
 
-    npm root [-g]
+## Display npm root
 
-## DESCRIPTION
+### Synopsis
+```bash
+npm root [-g]
+```
+
+### Description
 
 Print the effective `node_modules` folder to standard out.
 
-## SEE ALSO
+### See Also
 
-* npm-prefix(1)
-* npm-bin(1)
-* npm-folders(5)
-* npm-config(1)
-* npm-config(7)
-* npmrc(5)
+* [npm-prefix](npm-prefix)
+* [npm-bin](npm-bin)
+* [npm-folders](npm-folders)
+* [npm-config](npm-config)
+* [npm-config](npm-config)
+* [npmrc](npmrc)

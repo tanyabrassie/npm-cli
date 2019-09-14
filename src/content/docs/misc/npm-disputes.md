@@ -1,5 +1,11 @@
-npm-disputes(7) -- Handling Module Name Disputes
-================================================
+---
+title: npm-disputes
+description: Handling Module Name Disputes
+---
+
+# npm-disputes
+
+## Handling Module Name Disputes
 
 This document describes the steps that you should take to resolve module name
 disputes with other npm publishers. It also describes special steps you should
@@ -10,7 +16,7 @@ This document is a clarification of the acceptable behavior outlined in the
 this document should be interpreted to contradict any aspect of the npm Code of
 Conduct.
 
-## TL;DR
+### TL;DR
 
 1. Get the author email with `npm owner ls <pkgname>`
 2. Email the author, CC <support@npmjs.com>
@@ -18,7 +24,7 @@ Conduct.
 
 Don't squat on package names.  Publish code or move out of the way.
 
-## DESCRIPTION
+### Description
 
 There sometimes arise cases where a user publishes a module, and then later,
 some other user wants to use that name. Here are some common ways that happens
@@ -57,7 +63,7 @@ some other user wants to use that name. Here are some common ways that happens
    <support@npmjs.com> and we'll sort it out. ("Reasonable" is usually at least
    4 weeks.)
 
-## REASONING
+### Reasoning
 
 In almost every case so far, the parties involved have been able to reach an
 amicable resolution without any major intervention. Most people really do want
@@ -69,7 +75,7 @@ is going to make most people quite upset, regardless of the justification. When
 humans solve their problems by talking to other humans with respect, everyone
 has the chance to end up feeling good about the interaction.
 
-## EXCEPTIONS
+### Exceptions
 
 Some things are not allowed, and will be removed without discussion if they are
 brought to the attention of the npm registry admins, including but not limited
@@ -98,7 +104,7 @@ If you see bad behavior like this, please report it to <abuse@npmjs.com> right
 away. **You are never expected to resolve abusive behavior on your own. We are
 here to help.**
 
-## TRADEMARKS
+### Trademarkss
 
 If you think another npm publisher is infringing your trademark, such as by
 using a confusingly similar package name, email <abuse@npmjs.com> with a link to
@@ -111,20 +117,20 @@ name to you. Otherwise, we will contact the package publisher and ask them to
 clear up any confusion with changes to their package's `README` file or
 metadata.
 
-## CHANGES
+### Changes
 
 This is a living document and may be updated from time to time. Please refer to
 the [git history for this document](https://github.com/npm/cli/commits/latest/doc/misc/npm-disputes.md)
 to view the changes.
 
-## LICENSE
+### License
 
 Copyright (C) npm, Inc., All rights reserved
 
 This document may be reused under a Creative Commons Attribution-ShareAlike
 License.
 
-## SEE ALSO
+### See also
 
-* npm-registry(7)
-* npm-owner(1)
+* [npm-registry](npm-registry)
+* [npm-owner](npm-owner)

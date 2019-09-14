@@ -1,7 +1,13 @@
-npm-scripts(7) -- How npm handles the "scripts" field
-=====================================================
+---
+title: npm-scripts
+description: How npm handles the "scripts" field
+---
 
-## DESCRIPTION
+# npm-scripts
+
+## How npm handles the "scripts" field
+
+### Description
 
 npm supports the "scripts" property of the package.json file, for the
 following scripts:
@@ -55,9 +61,9 @@ names will be run for those as well (e.g. `premyscript`, `myscript`,
 `postmyscript`). Scripts from dependencies can be run with 
 `npm explore <pkg> -- npm run <stage>`.
 
-## PREPUBLISH AND PREPARE
+#### Prepublish and Prepare
 
-### DEPRECATION NOTE
+#### Deprecation Note
 
 Since `npm@1.1.71`, the npm CLI has run the `prepublish` script for both `npm
 publish` and `npm install`, because it's a convenient way to prepare a package
@@ -73,7 +79,7 @@ they're in good shape).
 See <https://github.com/npm/npm/issues/10074> for a much lengthier
 justification, with further reading, for this change.
 
-### USE CASES
+#### Use Cases
 
 If you need to perform operations on your package before it is used, in a way
 that is not dependent on the operating system or architecture of the
@@ -95,7 +101,7 @@ Additionally, this means that:
 * You don't need to rely on your users having `curl` or `wget` or
   other system tools on the target machines.
 
-## DEFAULT VALUES
+### Default Values
 
 npm will default some script values based on package contents.
 
@@ -110,34 +116,36 @@ npm will default some script values based on package contents.
   haven't defined your own `install` or `preinstall` scripts, npm will
   default the `install` command to compile using node-gyp.
 
-## USER
+### User
 
 If npm was invoked with root privileges, then it will change the uid
 to the user account or uid specified by the `user` config, which
 defaults to `nobody`.  Set the `unsafe-perm` flag to run scripts with
 root privileges.
 
-## ENVIRONMENT
+### Environment
 
 Package scripts run in an environment where many pieces of information
 are made available regarding the setup of npm and the current state of
 the process.
 
 
-### path
+#### path
 
 If you depend on modules that define executable scripts, like test
 suites, then those executables will be added to the `PATH` for
 executing the scripts.  So, if your package.json has this:
 
-    { "name" : "foo"
-    , "dependencies" : { "bar" : "0.1.x" }
-    , "scripts": { "start" : "bar ./test" } }
+```json
+{ "name" : "foo"
+, "dependencies" : { "bar" : "0.1.x" }
+, "scripts": { "start" : "bar ./test" } }
+```
 
 then you could run `npm start` to execute the `bar` script, which is
 exported into the `node_modules/.bin` directory on `npm install`.
 
-### package.json vars
+#### package.json vars
 
 The package.json fields are tacked onto the `npm_package_` prefix. So,
 for instance, if you had `{"name":"foo", "version":"1.2.5"}` in your
@@ -147,31 +155,37 @@ package.json file, then your package scripts would have the
 in your code with `process.env.npm_package_name` and 
 `process.env.npm_package_version`, and so on for other fields.
 
-### configuration
+#### configuration
 
 Configuration parameters are put in the environment with the
 `npm_config_` prefix. For instance, you can view the effective `root`
 config by checking the `npm_config_root` environment variable.
 
-### Special: package.json "config" object
+#### Special: package.json "config" object
 
 The package.json "config" keys are overwritten in the environment if
 there is a config param of `<name>[@<version>]:<key>`.  For example,
 if the package.json has this:
 
-    { "name" : "foo"
-    , "config" : { "port" : "8080" }
-    , "scripts" : { "start" : "node server.js" } }
+```json
+{ "name" : "foo"
+, "config" : { "port" : "8080" }
+, "scripts" : { "start" : "node server.js" } }
+```
 
 and the server.js is this:
 
-    http.createServer(...).listen(process.env.npm_package_config_port)
+```javascript
+http.createServer(...).listen(process.env.npm_package_config_port)
+```
 
 then the user could change the behavior by doing:
 
-    npm config set foo:port 80
+```bash
+  npm config set foo:port 80
+  ```
 
-### current lifecycle event
+#### current lifecycle event
 
 Lastly, the `npm_lifecycle_event` environment variable is set to
 whichever stage of the cycle is being executed. So, you could have a
@@ -182,18 +196,22 @@ Objects are flattened following this format, so if you had
 `{"scripts":{"install":"foo.js"}}` in your package.json, then you'd
 see this in the script:
 
-    process.env.npm_package_scripts_install === "foo.js"
+```bash
+process.env.npm_package_scripts_install === "foo.js"
+```
 
-## EXAMPLES
+### Examples
 
 For example, if your package.json contains this:
 
-    { "scripts" :
-      { "install" : "scripts/install.js"
-      , "postinstall" : "scripts/install.js"
-      , "uninstall" : "scripts/uninstall.js"
-      }
-    }
+```json
+{ "scripts" :
+  { "install" : "scripts/install.js"
+  , "postinstall" : "scripts/install.js"
+  , "uninstall" : "scripts/uninstall.js"
+  }
+}
+```
 
 then `scripts/install.js` will be called for the install
 and post-install stages of the lifecycle, and `scripts/uninstall.js`
@@ -205,14 +223,16 @@ variable.
 If you want to run a make command, you can do so.  This works just
 fine:
 
-    { "scripts" :
-      { "preinstall" : "./configure"
-      , "install" : "make && make install"
-      , "test" : "make test"
-      }
-    }
+```json
+{ "scripts" :
+  { "preinstall" : "./configure"
+  , "install" : "make && make install"
+  , "test" : "make test"
+  }
+}
+```
 
-## EXITING
+### Exiting
 
 Scripts are run by passing the line as a script argument to `sh`.
 
@@ -223,7 +243,7 @@ Note that these script files don't have to be nodejs or even
 javascript programs. They just have to be some kind of executable
 file.
 
-## HOOK SCRIPTS
+### Hook Scripts
 
 If you want to run a specific script at a specific lifecycle event for
 ALL packages, then you can use a hook script.
@@ -236,7 +256,7 @@ Hook scripts are run exactly the same way as package.json scripts.
 That is, they are in a separate child process, with the env described
 above.
 
-## BEST PRACTICES
+### Best Practices
 
 * Don't exit with a non-zero error code unless you *really* mean it.
   Except for uninstall scripts, this will cause the npm action to
@@ -260,9 +280,9 @@ above.
   there is another option. The only valid use of `install` or `preinstall`
   scripts is for compilation which must be done on the target architecture.
 
-## SEE ALSO
+### See Also
 
-* npm-run-script(1)
-* package.json(5)
-* npm-developers(7)
-* npm-install(1)
+* [npm-run-script](npm-run-script)
+* [package.json](package.json)
+* [npm-developers](npm-developers)
+* [npm-install](npm-install)
