@@ -56,9 +56,7 @@ const Heart = styled(Box)`
 
 const Hamburger = styled.button`
   border: none;
-  background: url(${(props) => props.isOpen ? hamburgerClose : hamburger});
-  background-repeat: no-repeat;
-  background-position: center;
+  background: center no-repeat url(${(props) => props.isOpen ? hamburgerClose : hamburger});
   height: 30px;
   width: 30px;
   display: block;
@@ -82,9 +80,17 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', () => {
-      window.document.getElementsByTagName('body')[0].classList.remove('disabled-body');
+      this.enableBody();
       this.setState({showMobileNav: false}); 
     });
+  }
+
+  componentWillUnmount() {
+    this.enableBody();
+  }
+
+  enableBody =() => {
+    window.document.getElementsByTagName('body')[0].classList.remove('disabled-body');
   }
 
   toggleNav = () => {
