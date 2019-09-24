@@ -8,9 +8,12 @@ export const breakpoints = {
 export const colors = {
   white: '#ffffff',
   lightGray: '#f2f2f2',
+  darkGray: '#767676',
   offWhite: '#e8d9d94d',
   black: '#231f20',
   purpleBlack: '#413844',
+  purple: '#cc33ff',
+  lightPurple: '#ffebff',
   red: '#fb3b49',
 };
 
@@ -29,11 +32,13 @@ export const theme = {
   colors: {
     white: '#ffffff',
     lightGray: '#f2f2f2',
+    darkGray: '#767676',
     offWhite: '#e8d9d94d',
     black: '#231f20',
     purpleBlack: '#413844',
     purple: '#cc33ff',
-    red: '#fb3b49'
+    lightPurple: '#ffebff',
+    red: '#fb3b49',
   },
   space: [
     0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80

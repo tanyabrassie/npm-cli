@@ -6,9 +6,9 @@ import {theme} from '../theme';
 import styled from 'styled-components';
 
 const Content = styled.div`
-  max-width: 640px;
+  max-width: 760px;
   margin: auto;
-  padding: 0 16px;
+  padding: 0 30px 120px;
 `;
 
 const Page = ({data}) => {
@@ -17,7 +17,7 @@ const Page = ({data}) => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Layout>
+        <Layout showSidebar>
           <Content className="documentation" dangerouslySetInnerHTML={{ __html: pageData.html }} />
         </Layout>
       </ThemeProvider>

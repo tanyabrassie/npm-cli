@@ -3,67 +3,120 @@ import styled from 'styled-components';
 import {Flex, Image, Box} from 'rebass';
 import cliLogo from '../images/cli-logo.svg';
 import {Link} from 'gatsby';
-
-const NavLink = styled(Link)`
-  font-family: 'Poppins';
-  font-weight: 500;
-  text-decoration: none;
-  color: ${(props) => props.theme.colors.black};
-  letter-spacing: .3px;
-  margin: 0 10px;
-  font-size: 14px;
-  transition: opacity .5s;
-
-  &:hover {
-    opacity: .5;
-  }
-`;
+import {NavLink, BasicNavLink} from './links';
+import MobileSidebar from '../components/MobileSidebar';
+import hamburger from '../images/hamburger.svg';
+import hamburgerClose from '../images/hamburger-close.svg';
 
 const Container = styled(Flex)`
   width: 100%;
   border-bottom: 1px solid #86838333;
+  position: sticky;
+  top: 0;
+  background-color: ${(props) => props.theme.colors.white};
+  z-index: 1;
 `;
 
 const Inner = styled(Flex)`
   border-top: 3px solid;
   border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3;
-  max-width: 1600px;
   margin: auto;
   height: 53px;
   padding: 0 30px;
   align-items: center;
   width: 100%;
-
 `;
 
 const Logo = styled(Image)`
   width: 120px;
-  padding: 0px 10px;
-  height: 20px;
+  padding: 0px 5px;
+  height: 18px;
   vertical-align: middle;
+  display: inline-block;
+  transition: opacity .5s;
+
+  &:hover {
+    opacity: .8;
+  }
 `;
 
 const Links = styled.ul`
-  margin-left: auto;
+  display: none;
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.TABLET}) {
+    display: block;
+    margin-left: auto;
+  }
 `;
 
 const Heart = styled(Box)`
-  font-size: 14px;
+  font-size: 15px;
+  display: inline-block;
 `;
 
-const Navbar = () => {
-  return(
-    <Container>
-      <Inner>
-        <Heart ml={1} mr={'24px'}>❤</Heart>
-        <Link to="/"><Logo src={cliLogo} /></Link>
-        <Links>
-          <NavLink to="/">docs</NavLink>
-          <NavLink to="/">npmjs.org</NavLink>
-        </Links>
-      </Inner>
-    </Container>
-  );
-};
+const Hamburger = styled.button`
+  border: none;
+  background: url(${(props) => props.isOpen ? hamburgerClose : hamburger});
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30px;
+  width: 30px;
+  display: block;
+  margin-left: auto;
+  transition: opacity .5s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .6;
+  }
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.TABLET}) {
+    display: none;
+  }
+`;
+
+class Navbar extends React.Component {
+  state = {
+    showMobileNav: false,
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      window.document.getElementsByTagName('body')[0].classList.remove('disabled-body');
+      this.setState({showMobileNav: false}); 
+    });
+  }
+
+  toggleNav = () => {
+    this.setState({showMobileNav: !this.state.showMobileNav});  
+    window.document.getElementsByTagName('body')[0].classList.toggle('disabled-body');
+  }
+
+  render() {
+    return(
+      <>
+        <Container>
+          <Inner>
+            <Link to="/">
+              <Heart ml={1} mr={'24px'}>❤</Heart><Logo src={cliLogo} />
+            </Link>
+            <Links>
+              <NavLink 
+                to="/docs/cli-commands/npm" 
+                partiallyActive={true}
+                activeClassName="active-navbar-link"
+              >
+                docs
+              </NavLink>
+              <BasicNavLink href="https://www.npmjs.com/">npmjs.org</BasicNavLink>
+            </Links>  
+            <Hamburger isOpen={this.state.showMobileNav} onClick={this.toggleNav}/> 
+          </Inner>
+        </Container>
+        {this.state.showMobileNav && <MobileSidebar/>}
+      </>
+    );
+  }
+} 
 
 export default Navbar;

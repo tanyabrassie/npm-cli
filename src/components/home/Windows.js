@@ -7,6 +7,7 @@ const Container = styled.div`
   height: 400px;
   width: 80%;
   margin: auto;
+  left: -4%;
 `;
 
 class Windows extends React.Component {
@@ -14,32 +15,46 @@ class Windows extends React.Component {
     showTopTerminal: true,
     showMiddleTerminal: true,
     showBottomTerminal: true,
+    counter: 0,
   };
+
+  onHide = (terminal) => {
+    this.setState({ [terminal]: false, counter: this.state.counter + 1}, () => {
+      if (this.state.counter == 3) {
+        this.setState({
+          showTopTerminal: true,
+          showMiddleTerminal: true,
+          showBottomTerminal: true,
+          counter: 0,
+        });
+      }
+    });
+  }
  
   render() {
     return(
       <Container>
         {this.state.showTopTerminal && 
           <Terminal 
-            onClose={() => this.setState({showTopTerminal: false})}
-            xPosition={'-8%'} 
-            yPosition={'0%'}
+            onClose={() => this.onHide('showTopTerminal')}
+            top={'0%'} 
+            left={'0%'}
           />
         }
 
         {this.state.showMiddleTerminal && 
           <Terminal 
-            onClose={() => this.setState({showMiddleTerminal: false})}
-            xPosition={'-4%'} 
-            yPosition={'-90%'}
+            onClose={() => this.onHide('showMiddleTerminal')}
+            top={'8%'} 
+            left={'5%'}
           />
         }
 
         {this.state.showBottomTerminal && 
           <Terminal
-            onClose={() => this.setState({showBottomTerminal: false})}
-            xPosition={'0%'} 
-            yPosition={'-180%'}
+            onClose={() => this.onHide('showBottomTerminal')}
+            top={'16%'} 
+            left={'10%'}
           />
         }
       </Container>

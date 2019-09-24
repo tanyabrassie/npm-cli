@@ -1,9 +1,8 @@
-import React from 'react';
 import {Link} from 'gatsby';
 import {colors} from '../theme';
 import styled from 'styled-components';
 
-const PrimaryButton = styled(Link)`
+export const LinkButton = styled(Link)`
   background-color: ${colors.red};
   color: ${colors.white};
   font-size: 20px;
@@ -15,14 +14,9 @@ const PrimaryButton = styled(Link)`
   display: inline-block;
   min-width: 180px;
   font-weight: 700;
+  transition: opacity .5s;
+
+  &:hover {
+    opacity: .8;
+  }
 `;
-
-const Button = ({children}) => {
-  return(
-    <PrimaryButton>
-      {children}
-    </PrimaryButton>
-  );
-};
-
-export default Button;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Flex, Image, Box} from 'rebass';
+import {Flex, Image, Text} from 'rebass';
 
 const Card = styled(Flex)`
   background-color: #f2f2f2ab;
@@ -8,20 +8,29 @@ const Card = styled(Flex)`
   border-radius: 2px;
 `;
 
-const Text = styled.p`
+const Desc = styled.p`
+  padding: 5px 0; 
+  font-size: 16px;
 `;
 
-const Title = styled.h2`
+const Title = styled(Text)`
+  font-size: 24px;
+  font-weight: 500;
+  text-shadow: 1px 2px 2px #f061df6e;
 `;
 
-const FeatureCard = ({icon, text, title, theme}) => {
-  console.log(theme);
+const Icon = styled(Image)`
+  width: 90px;
+  flex-shrink: 0;
+`;
+
+const FeatureCard = ({icon, text, title}) => {
   return(
-    <Card p={5} m={3}>
-      <Image width={'125px'} src={icon}/>
-      <Flex flexDirection='column' p={2}>
-        <Box py={2}><Title>{title}</Title></Box>
-        <Text>{text}</Text>
+    <Card alignItems="center" flexDirection={['column', 'row']} p={5} m={4}>
+      <Icon src={icon}/>
+      <Flex flexDirection='column' pl={[0, 4]} pt={2}>
+        <Title textAlign={['center', 'left']}>{title}</Title>
+        <Desc>{text}</Desc>
       </Flex>
     </Card>
   );

@@ -5,7 +5,7 @@ import testIcon from '../../images/test-icon.svg';
 import {Flex} from 'rebass';
 
 const Container = styled(Flex)`
-  background: linear-gradient(144deg, #fb881799, #ff4b0199, #c1212799, #e02aff99);
+  background: linear-gradient(84deg, #fb881799, #ff4b0199, #c1212799, #e02aff99);
 `;
 
 const ContentWrapper = styled(Flex)`
