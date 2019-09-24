@@ -15,8 +15,6 @@ exports.onCreateNode = ({node, getNode, actions}) => {
 
 exports.createPages = ({graphql, actions}) => {
   const {createPage} = actions;
-  //returning graphql query that is a promise and creates a page for each 
-  //node that is returned from the query
   return graphql(`
     {
       allMarkdownRemark {

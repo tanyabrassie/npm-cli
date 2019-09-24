@@ -12,15 +12,15 @@ const ContentWrapper = styled(Flex)`
   max-width: 640px;
 `;
 
-const featureTexts = [
-  'Nunc malesuada suscipit enim at feugiat. Duis id mauris lectus. Donec a sagittis lectus.',
-  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, tetuer adipiscing elit, sed diam nonummy nibmod',
-];
+const featureTexts = {
+  textOne: 'Nunc malesuada suscipit enim at feugiat. Duis id mauris lectus. Donec a sagittis lectus.',
+  textTwo: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, tetuer adipiscing elit, sed diam nonummy nibmod',
+};
 
-const featureTitles = [
-  'Really Fast',
-  'Easy to Use',
-];
+const featureTitles = {
+  titleOne: 'Really Fast',
+  titleTwo: 'Easy to Use',
+};
 
 const Features = () => {
   return(
@@ -28,18 +28,18 @@ const Features = () => {
       <ContentWrapper m='auto' py={5} flexDirection='column'>
         <FeatureCard 
           icon={testIcon} 
-          title={featureTitles[0]}
-          text={featureTexts[0]}
+          title={featureTitles.titleOne}
+          text={featureTexts.textOne}
         />
         <FeatureCard 
           icon={testIcon} 
-          title={featureTitles[0]}
-          text={featureTexts[0]}
+          title={featureTitles.titleTwo}
+          text={featureTexts.textTwo}
         />
         <FeatureCard 
           icon={testIcon} 
-          title={featureTitles[0]}
-          text={featureTexts[0]}
+          title={featureTitles.titleOne}
+          text={featureTexts.textOne}
         />
       </ContentWrapper>
     </Container>

@@ -6,7 +6,7 @@ import {} from '../components/Sidebar';
 const MobileContainer = styled.div`
   border-left: 1px solid #86838333;
   border-bottom: 1px solid #86838333;
-  padding: 30px;
+  padding: 30px 30px 200px;
   width: 340px;
   display: block;
   height: calc(100vh - 54px);

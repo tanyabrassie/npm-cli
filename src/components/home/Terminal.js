@@ -8,16 +8,16 @@ import bracket from '../../images/bracket.svg';
 const TerminalBody = styled(Flex)`
   background-color: ${(props) => props.theme.colors.purpleBlack};
   border: 2px solid ${(props) => props.theme.colors.purpleBlack};
-  border-radius: 2px;
-  flex-direction: column;
   color: ${(props) => props.theme.colors.white};
+  flex-direction: column;
+  max-width: 620px;
   width: 100%;
   height: 100%;
   box-shadow: 0px 0px 17px 1px #dc3bc180;
+  border-radius: 2px;
   top: ${(props) => props.top};
-  right: 0;
   left: ${(props) => props.left};  
-  max-width: 620px;
+  right: 0;
   position: absolute;
 `;
 
