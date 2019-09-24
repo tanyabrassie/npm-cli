@@ -4,6 +4,7 @@ import {graphql} from 'gatsby';
 import {ThemeProvider} from 'styled-components';
 import {theme} from '../theme';
 import styled from 'styled-components';
+import FoundTypo from '../components/FoundTypo';
 
 const Content = styled.div`
   max-width: 760px;
@@ -18,7 +19,10 @@ const Page = ({data}) => {
     <>
       <ThemeProvider theme={theme}>
         <Layout showSidebar>
-          <Content className="documentation" dangerouslySetInnerHTML={{ __html: pageData.html }} />
+          <Content className="documentation">
+            <div dangerouslySetInnerHTML={{ __html: pageData.html }} />
+            <FoundTypo/>
+          </Content>
         </Layout>
       </ThemeProvider>
     </>
