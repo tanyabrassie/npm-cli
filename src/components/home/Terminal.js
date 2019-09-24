@@ -72,11 +72,8 @@ const Cursor = styled.span`
 `;
 
 const Bracket = styled.span`
-  background-image: url(${bracket});
+  background: center / contain no-repeat url(${bracket});
   width: 25px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   margin-right: 5px;
   margin-top: 10px;
 `;
@@ -94,11 +91,9 @@ const Text = styled.strong`
 
 const ModalButton = styled(RebassButton)`
   cursor: pointer;
-  background-image: url(${closeX});
+  background: center no-repeat  url(${closeX});
   width: 14px;
   height: 14px;
-  background-position: center;
-  background-repeat: no-repeat;
 `;
 
 const Terminal = ({onClose, top, left}) => {

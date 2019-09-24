@@ -4,10 +4,14 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
-  height: 400px;
+  height: 350px;
   width: 80%;
   margin: auto;
   left: -4%;
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.TABLET}) {
+    height: 400px;
+  }
 `;
 
 class Windows extends React.Component {

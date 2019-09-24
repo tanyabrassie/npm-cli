@@ -5,7 +5,7 @@ import upCarrot from '../images/up-carrot.svg';
 
 const SectionButton = styled.button`
   outline: none;
-  background-color: none;
+  background-color: transparent;
   cursor: pointer;
   color: red;
   border: none;
@@ -15,10 +15,7 @@ const SectionButton = styled.button`
   transition: opacity .5s;
 
   &:after {
-    background: url(${(props) => props.isOpen ? upCarrot : downCarrot});
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background: center / contain no-repeat url(${(props) => props.isOpen ? upCarrot : downCarrot});
     content: '';
     height: 11px;
     width: 28px;

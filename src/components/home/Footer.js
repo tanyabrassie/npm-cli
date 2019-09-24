@@ -4,10 +4,7 @@ import styled from 'styled-components';
 import {Flex, Box} from 'rebass';
 
 const Container = styled(Flex)`
-  background-image: url(${boxes});
-  background-position: center;
-  background-size: cover; 
-  background-repeat: no-repeat;
+  background: center / cover no-repeat url(${boxes}); 
   height: 380px;
  `;
 
