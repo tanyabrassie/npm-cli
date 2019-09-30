@@ -20,7 +20,7 @@ const Title = styled(Text)`
 `;
 
 const Icon = styled(Image)`
-  width: 90px;
+  width: 110px;
   flex-shrink: 0;
 `;
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import FeatureCard from './FeatureCard';
-import testIcon from '../../images/test-icon.svg';
 import {Flex} from 'rebass';
 import rectangles from '../../images/background-rectangles.svg';
+import terminalIcon from '../../images/terminal-icon.svg';
+import networkIcon from '../../images/network-icon.svg';
+import managerIcon from '../../images/manager-icon.svg';
 
 const ContainerInner = styled(Flex)`
   background: linear-gradient(84deg, #fb881799, #ff4b0199, #c1212799, #e02aff99);
@@ -33,17 +35,17 @@ const Features = () => {
       <ContainerInner>
         <ContentWrapper m='auto' py={5} flexDirection='column'>
           <FeatureCard 
-            icon={testIcon} 
+            icon={terminalIcon} 
             title={featureTitles.titleOne}
             text={featureTexts.textOne}
           />
           <FeatureCard 
-            icon={testIcon} 
+            icon={managerIcon} 
             title={featureTitles.titleTwo}
             text={featureTexts.textTwo}
           />
           <FeatureCard 
-            icon={testIcon} 
+            icon={networkIcon} 
             title={featureTitles.titleOne}
             text={featureTexts.textOne}
           />
