@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FeatureCard from './FeatureCard';
 import {Flex} from 'rebass';
+import {FeatureLink} from '../links';
 import rectangles from '../../images/background-rectangles.svg';
 import terminalIcon from '../../images/terminal-icon.svg';
 import networkIcon from '../../images/network-icon.svg';
@@ -19,36 +20,53 @@ const ContentWrapper = styled(Flex)`
   max-width: 640px;
 `;
 
-const featureTexts = {
-  textOne: 'Nunc malesuada suscipit enim at feugiat. Duis id mauris lectus. Donec a sagittis lectus.',
-  textTwo: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod Lorem ipsum dolor sit amet, tetuer adipiscing elit, sed diam nonummy nibmod',
+const featureTitles = {
+  titleOne: 'Getting Started',
+  titleTwo: 'Command Reference',
+  titleThree: 'Using npm',
+  titleFour: 'Publishing'
 };
 
-const featureTitles = {
-  titleOne: 'Really Fast',
-  titleTwo: 'Easy to Use',
+const featureTexts = {
+  textOne: 'Download, install, and configure.',
+  textTwo: 'All available npm commands.',
+  textThree: 'How npm things work.',
+  textFour: 'Publish your own public or private packages to the registry.'
 };
 
 const Features = () => {
-  return(
+  return (
     <Container>
       <ContainerInner>
         <ContentWrapper m='auto' py={5} flexDirection='column'>
-          <FeatureCard 
-            icon={terminalIcon} 
-            title={featureTitles.titleOne}
-            text={featureTexts.textOne}
-          />
-          <FeatureCard 
-            icon={managerIcon} 
-            title={featureTitles.titleTwo}
-            text={featureTexts.textTwo}
-          />
-          <FeatureCard 
-            icon={networkIcon} 
-            title={featureTitles.titleOne}
-            text={featureTexts.textOne}
-          />
+          <FeatureLink to={'/docs/configuring-npm/install'}>
+            <FeatureCard
+              icon={terminalIcon}
+              title={featureTitles.titleOne}
+              text={featureTexts.textOne}
+            />
+          </FeatureLink>
+          <FeatureLink to={'/docs/cli-commands/npm'}>
+            <FeatureCard
+              icon={managerIcon}
+              title={featureTitles.titleTwo}
+              text={featureTexts.textTwo}
+            />
+          </FeatureLink>
+          <FeatureLink to={'/docs/using-npm/coding-style'}>
+            <FeatureCard
+              icon={networkIcon}
+              title={featureTitles.titleThree}
+              text={featureTexts.textThree}
+            />
+          </FeatureLink>
+          <FeatureLink to={'https://www.npmjs.com/products'}>
+            <FeatureCard
+              icon={networkIcon}
+              title={featureTitles.titleFour}
+              text={featureTexts.textFour}
+            />
+          </FeatureLink>
         </ContentWrapper>
       </ContainerInner>
     </Container>

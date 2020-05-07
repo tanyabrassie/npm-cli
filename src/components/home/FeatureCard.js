@@ -25,7 +25,7 @@ const Icon = styled(Image)`
 `;
 
 const FeatureCard = ({icon, text, title}) => {
-  return(
+  return (
     <Card alignItems="center" flexDirection={['column', 'row']} p={5} m={4}>
       <Icon src={icon}/>
       <Flex flexDirection='column' pl={[0, 4]} pt={2}>

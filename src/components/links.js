@@ -8,6 +8,15 @@ const baseLinkStyles = css`
   font-size: 14px;
 `;
 
+const featureLinkStyles = css`
+  ${baseLinkStyles}
+  color: ${(props) => props.theme.colors.black};
+  transition: opacity .5s
+  &:hover {
+    opacity: .9;
+  }
+`;
+
 const navLinkStyles = css`
   ${baseLinkStyles};
   color: ${(props) => props.theme.colors.black};
@@ -17,6 +26,10 @@ const navLinkStyles = css`
   &:hover {
     opacity: .5;
   }
+`;
+
+export const FeatureLink = styled(Link)`
+  ${featureLinkStyles}
 `;
 
 export const NavLink = styled(Link)`
